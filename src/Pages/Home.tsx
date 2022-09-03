@@ -43,7 +43,7 @@ function Home() {
   const getImagesEmpty = async () => {
     try {
       const res = await fetch(
-        `http://localhost:8000/api/v0/images/random/?quantity=20&key=${process.env.REACT_APP_API_KEY}`
+        `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=20&key=${process.env.REACT_APP_API_KEY}`
       );
 
       setImages(await res.json());
@@ -58,7 +58,7 @@ function Home() {
   const getImages = async (query: string) => {
     try {
       const res = await fetch(
-        `http://localhost:8000/api/v0/images/?tags=${query}&quantity=25&key=${process.env.REACT_APP_API_KEY}`
+        `https://imageapi-production.up.railway.app/api/v0/images/?tags=${query}&quantity=25&key=${process.env.REACT_APP_API_KEY}`
       );
       setImages(await res.json());
       setLoading(false);
@@ -120,11 +120,11 @@ function Home() {
                 <hr className="mt-3 sm:mx-auto w-[38rem]" />
               </div>
 
-              <div className="columns-5 pt-10 px-24">
+              {/*   <div className="columns-5 pt-10 px-24">
                 {images.map((image) => (
                   <Gallery key={image.uuid} image={image} />
                 ))}
-              </div>
+              </div> */}
             </div>
           )}
         </div>

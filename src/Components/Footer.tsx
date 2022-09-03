@@ -4,7 +4,9 @@ function Footer() {
   const [healthcheck, setHealthcheck] = useState(false);
 
   const healthcheckfunc = async () => {
-    const res = await fetch("http://localhost:8000/healthcheck");
+    const res = await fetch(
+      "https://imageapi-production.up.railway.app/healthcheck"
+    );
     if (!res.ok) {
       setHealthcheck(true);
       console.log(healthcheck);
