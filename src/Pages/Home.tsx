@@ -108,7 +108,7 @@ function Home() {
               <div className="flex justify-center">
                 <img
                   className="rounded-3xl w-64"
-                  src="/static/pepes/test1.jpg"
+                  src="/static/pepes/1.jpg"
                   alt=""
                 />
               </div>
@@ -126,7 +126,7 @@ function Home() {
                 <hr className="mt-3 sm:mx-auto w-[38rem]" />
               </div>
 
-              <div className="columns-5 pt-10 px-24">
+              <div className="columns-5 pt-10 px-24 pb-24">
                 {images.map((image) => (
                   <Gallery key={image.uuid} image={image} />
                 ))}
