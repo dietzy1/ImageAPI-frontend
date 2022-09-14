@@ -11,6 +11,8 @@ module.exports = {
         blacky: "#000300",
         greeny: "#00df9a",
         darky: "#131315",
+        bluey: "#151922",
+        hybrid: "#1D1F21",
       },
       animation: {
         slide: "slide 36s linear infinite",

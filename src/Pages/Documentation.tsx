@@ -1,3 +1,4 @@
+import Codeblocks, { codeblocktype } from "../Components/Codeblocks";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
@@ -11,7 +12,7 @@ function Documentation() {
 
       <div className="flex flex-col justify-center pt-24 ">
         <div className="max-w-[850px] w-full mx-auto p-8 px-8 ">
-          <h2 className="text-4xl font-bold text-white text-center mb-8">
+          <h2 className="text-7xl font-bold text-white text-center mb-8">
             API-Documentation
           </h2>
 
@@ -87,104 +88,68 @@ function Documentation() {
               <span className="mb-4">
                 The objects contains the following fields:
               </span>
-
-              <div className="overflow-x-auto relative shadow-md sm:rounded-lg pb-4">
-                <table className="w-full text-base text-left text-gray-400">
-                  <thead className="text-xs uppercase bg-gray-800  text-gray-400">
-                    <tr>
-                      <th className="py-3 px-6">Field</th>
-                      <th className="py-3 px-6">Type</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b bg-[#151922] dark:border-gray-700 ">
-                      <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        "name"
-                      </th>
-                      <td className="py-4 px-6">"string"</td>
-                    </tr>
-
-                    <tr className=" border-b bg-[#151922] dark:border-gray-700 ">
-                      <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        "uuid"
-                      </th>
-                      <td className="py-4 px-6">"string"</td>
-                    </tr>
-
-                    <tr className="border-b bg-[#151922] dark:border-gray-700 ">
-                      <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        "tags"
-                      </th>
-                      <td className="py-4 px-6">"array"</td>
-                    </tr>
-
-                    <tr className=" border-b bg-[#151922] dark:border-gray-700 ">
-                      <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        "created"
-                      </th>
-                      <td className="py-4 px-6">"time.Time"</td>
-                    </tr>
-
-                    <tr className="border-b bg-[#151922] border-gray-700 ">
-                      <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        "filepath"
-                      </th>
-                      <td className="py-4 px-6">"string"</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <Codeblocks code={type} startingLineNumber={1} codeBlock={true} />
 
               <h2 className="text-4xl font-bold text-white underline">
                 Endpoints
               </h2>
               <div className="flex flex-col text-gray-400 py-2">
-                <span className="mb-4">
-                  <div className="absolute w-3 h-3 rounded-full mt-1.5 -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                  These GET request endpoints are currently supported.
+                <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                  <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                  Supported GET endpoints
                 </span>
-
+                <span className="mb-4">
+                  The underlying table shows the supported currently supported
+                  endpoints in v0 of the api.
+                </span>
+                <span className="mb-4">Random /api/v0/image/random/</span>
+                <span className="mb-4">by uuid /api/v0/image/:uuid</span>
+                <span className="mb-4">
+                  multiple random images /api/v0/images/
+                </span>
+                <span className="mb-4">
+                  multiple images by tags /api/v0/images/:tags
+                </span>
                 {/*This is the breakpoint where shit is being put in*/}
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg pb-4">
                   <table className="w-full text-base text-left text-gray-400">
-                    <thead className="text-xs uppercase bg-gray-800  text-gray-400">
+                    <thead className="text-xs uppercase bg-hybrid  text-gray-400">
                       <tr>
-                        <th className="py-3 px-6">Method</th>
+                        <th className="py-3 px-8">Method</th>
                         <th className="py-3 px-6">URL</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="border-b bg-[#151922] dark:border-gray-700 ">
+                      <tr className=" border-b bg-hybrid dark:border-gray-700 h-20">
                         <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          hmmm
-                        </th>
-                        <td className="py-4 px-6">"string"</td>
-                      </tr>
-
-                      <tr className=" border-b bg-[#151922] dark:border-gray-700 ">
-                        <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          hmm
+                          <span className="bg-greeny px-5 py-4 rounded-lg">
+                            GET
+                          </span>
                         </th>
                         <td className="py-4 px-6">{endpoint1}</td>
                       </tr>
 
-                      <tr className="border-b bg-[#151922] dark:border-gray-700 ">
+                      <tr className="border-b bg-hybrid dark:border-gray-700 h-20">
                         <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          "tags"
+                          <span className="bg-greeny px-5 py-4 rounded-lg">
+                            GET
+                          </span>
                         </th>
                         <td className="py-4 px-6">{endpoint2}</td>
                       </tr>
-
-                      <tr className=" border-b bg-[#151922] dark:border-gray-700 ">
+                      <tr className=" border-b bg-hybrid dark:border-gray-700 h-20">
                         <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          "created"
+                          <span className="bg-greeny px-5 py-4 rounded-lg">
+                            GET
+                          </span>
                         </th>
                         <td className="py-4 px-6">{endpoint3}</td>
                       </tr>
-
-                      <tr className="border-b bg-[#151922] border-gray-700 ">
+                      <tr className="border-b bg-hybrid border-gray-700 h-20">
                         <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          "filepath"
+                          <span className="bg-greeny px-5 py-4 rounded-lg">
+                            GET
+                          </span>
                         </th>
                         <td className="py-4 px-6">{endpoint4}</td>
                       </tr>
@@ -192,37 +157,50 @@ function Documentation() {
                   </table>
                 </div>
                 {/*This is the breakpoint*/}
-                <div className="absolute w-3 h-3 rounded-full mt-1.5 -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                <span>{endpoint1}</span>
-                <span className="mb-4">Returns a single random image.</span>
-
-                <div className="absolute w-3 h-3 rounded-full mt-1.5 -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                <span>{endpoint2}</span>
-                <span className="mb-4">
-                  Returns a single image based on the uuid provided.
-                </span>
-
-                <span>{endpoint3}</span>
-                <span className="mb-4">
-                  Returns multiple random images based on quantity proviced.
-                </span>
-
-                <span>{endpoint4}</span>
-                <span className="mb-4">
-                  Returns multiple images based on tag and quantity provided.
+                <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                  <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                  API access
                 </span>
               </div>
             </div>
             <h2 className="text-4xl font-bold text-white underline">
-              How to use the API key
+              API key usage
             </h2>
             <div className="flex flex-col text-gray-400 py-2">
-              <span>Feel free</span>
-              <span>filler text</span>
-              <span>filler text</span>
-              <span>filler text</span>
-              <span>filler text</span>
+              <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                How to
+              </span>
             </div>
+            <div className="flex flex-col text-gray-400 py-2">
+              <span>
+                The API key is a requirement for authentication. It is therefor
+                a request requirement that the API key is appended to the
+                request URL.
+              </span>
+              <span>
+                The API key field is coded as a query parameter, therefor the
+                query should be started with ?=key{"{key}"}. It is important to
+                note that unless this query parameter is filled out correctly,
+                the response will be a 401 Unauthorized.
+              </span>
+              <div className="flex flex-col text-gray-400 py-2">
+                <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                  <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                  Example usage in JS
+                  {/*Add some codeblocks*/}
+                  {/*  <Codeblocks {...{codeobject}} /> */}
+                  {/* <Codeblocks {"code", 1}/> */}
+                  <Codeblocks
+                    code={code}
+                    startingLineNumber={1}
+                    codeBlock={true}
+                  />
+                </span>
+                <span></span>
+              </div>
+            </div>
+
             <div className="mt-24" />
           </div>
         </div>
@@ -231,6 +209,42 @@ function Documentation() {
     </div>
   );
 }
+
+/* const codeobject: codeblocktype = {
+  code: `var sys = require("sys");
+  sys.puts("Hello World");"`,
+  language: "js",
+  showLineNumbers: true,
+  startingLineNumber: 1,
+  theme: "dark",
+  highlight: "",
+  codeBlock: true,
+}; */
+
+const code =
+  `const getImagesEmpty = async () => {
+  try {
+    const res = await fetch(
+      "https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=10&key=$` +
+  `{process.env.REACT_APP_API_KEY}",
+      {
+        method: "GET",
+      });
+    setImages(await res.json());
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(images);
+};`;
+
+const type = `export type imageType = {
+  title: string;
+  uuid: string;
+  tags: Array<string>;
+  created_at: string;
+  filepath: string;
+  filesize: number;
+};`;
 
 export default Documentation;
 
@@ -249,11 +263,3 @@ const endpoint7 =
 const endpoint8 =
 const endpoint9 =
 const endpoint10 = */
-
-const model = `export type imageType = {
-  name: string;
-  uuid: string;
-  tags: Array<string>;
-  created: string;
-  filepath: string;
-};`;

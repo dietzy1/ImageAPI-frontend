@@ -30,7 +30,7 @@ export function Signuppage({ open, onClose }: any) {
           e.stopPropagation();
         }}
       >
-        <form className="max-w-[450px] w-full mx-auto bg-gray-900 p-8  rounded-lg">
+        <form className="max-w-[450px] w-full mx-auto bg-[#151922] p-8  rounded-lg">
           <p
             onClick={onClose}
             className="flex justify-end text-white text-bold text-xl"

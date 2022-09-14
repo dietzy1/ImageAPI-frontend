@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import { createContext, useContext } from "react";
 
 export const defaultglobalState = {
-  user: false,
+  user: true,
 };
 
 export const GlobalStateContext = createContext(defaultglobalState);

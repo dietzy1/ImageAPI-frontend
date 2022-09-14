@@ -9,15 +9,13 @@ import { useGlobalState } from "../logic/context";
 
 import "../index.css";
 
-/* const image1 =
-  "http://localhost:8000/fileserver/912d6c8f-f007-4fa2-9370-e0a7ccb69717.jpg";
- */
 export type imageType = {
-  name: string;
+  title: string;
   uuid: string;
   tags: Array<string>;
-  created: string;
+  created_at: string;
   filepath: string;
+  filesize: number;
 };
 
 function Home() {
@@ -91,26 +89,21 @@ function Home() {
         <Navbar triggerParentUpdate={updateQueryState} />
         <Text />
         <FrontGallery />
-
         <div>
           {!loading && images.length === 0 && (
             <div>
-              <h1 className="text-5xl text-center mx-auto mt-32">
-                Unable to find images 😞
+              <h1 className="text greeny text-center text-xl">
+                Unable to find any images based on current search query.
               </h1>
             </div>
           )}
           {loading ? (
-            <div className="pb-28">
-              <h1 className="text-5xl text-center mx-auto text-white flex justify-center p-3 font-bold">
-                Unable to load images 😞
-              </h1>
-              <div className="flex justify-center">
-                <img
-                  className="rounded-3xl w-64"
-                  src="/static/pepes/1.jpg"
-                  alt=""
-                />
+            <div>
+              <div className="text-white text-3xl text-center">
+                Use the search bar to find your favorite pepe!
+              </div>
+              <div className="mt-3 justify-center flex items-center">
+                <hr className="mt-3 sm:mx-auto w-[38rem]" />
               </div>
             </div>
           ) : (

@@ -48,35 +48,54 @@ export function Accountpage({ open, onClose }: any) {
           e.stopPropagation();
         }}
       >
-        <div className="max-w-[650px] h-[650px] w-full mx-auto bg-gray-900 p-8 px-8 rounded-lg">
+        <div className="max-w-[650px] h-[650px] w-full mx-auto bg-bluey p-8 px-8 rounded-lg">
           <p
             className="flex justify-end text-white text-bold text-xl"
             onClick={onClose}
           >
             x
           </p>
-          <h2 className="text-4xl font-bold text-white text-center">
-            account page
+          <h2 className="text-5xl font-bold text-white text-center pb-4">
+            account overview
           </h2>
 
-          <div className="flex flex-col text-gray-400 py-2">
-            User Name
-            <div className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-greeny focus:bg-gray-800 focus:outline-none">
-              "output the fcking username here"
-            </div>
+          <span className="flex flex-col text-gray-400 py-2">
+            Hello {state.user.username}!
+          </span>
+          <span className="flex flex-col text-gray-400 py-2">
+            You can manage your account details from here.
+          </span>
+          <span className="flex flex-col text-gray-400 py-2">
+            Press the button below to have your API-key shown and get started
+            with the API!
+          </span>
+          <div className="overflow-x-auto relative shadow-md sm:rounded-lg pb-4">
+            <table className="w-full text-base text-left text-gray-400">
+              <thead className="text-xs uppercase bg-gray-800  text-gray-400">
+                <tr>
+                  <th className="py-3 px-8">Toggle visibility</th>
+                  <th className="py-3 px-6">API-key</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className=" border-b bg-[#151922] dark:border-gray-700 h-20">
+                  <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <button
+                      className="bg-greeny px-5 py-4 rounded-lg shadow-greeny/50 hover:shadow-greeny/30 shadow-lg"
+                      onClick={triggerToggle}
+                    >
+                      Show key
+                    </button>
+                  </th>
+                  <td className="py-4 px-6">
+                    {toggle ? apiKey : "****************"}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
           <div className="flex flex-col text-gray-400 py-2">
-            <button
-              className="my-5 py-2 bg-greeny shadow-lg shadow-greeny/50 hover:shadow-greeny/30 text-white font-semibold rounded-lg"
-              /* onClick={() => FetchAPIKey({ setAPIKey })} */
-              onClick={triggerToggle}
-            >
-              Show API key
-            </button>
-            API-key
-            <div className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-greeny focus:bg-gray-800 focus:outline-none">
-              {toggle ? apiKey : "****************"}
-            </div>
             <span>Feel free</span>
             <span>filler text</span>
             <span>filler text</span>
@@ -86,7 +105,13 @@ export function Accountpage({ open, onClose }: any) {
               className="my-5 py-2 bg-greeny shadow-lg shadow-greeny/50 hover:shadow-greeny/30 text-white font-semibold rounded-lg"
               onClick={() => GenerateAPIKey({ setAPIKey })}
             >
-              Generate API-key
+              Generate new API-key
+            </button>
+            <button
+              className="my-5 py-2 bg-greeny shadow-lg shadow-greeny/50 hover:shadow-greeny/30 text-white font-semibold rounded-lg"
+              onClick={() => GenerateAPIKey({ setAPIKey })}
+            >
+              Delete account
             </button>
           </div>
         </div>
@@ -111,4 +136,11 @@ async function GenerateAPIKey({ setAPIKey }: any) {
     credentials: "include",
   });
   setAPIKey(res.json());
+}
+
+async function DeleteAccount() {
+  const res = await fetch("http://localhost:8000/auth/deleteaccount/", {
+    method: "POST",
+    credentials: "include",
+  });
 }
