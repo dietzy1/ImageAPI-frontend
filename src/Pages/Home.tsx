@@ -41,7 +41,7 @@ function Home() {
   const getImagesEmpty = async () => {
     try {
       const res = await fetch(
-        `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=20&key=${process.env.REACT_APP_API_KEY}`,
+        `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
         {
           method: "GET",
         }
