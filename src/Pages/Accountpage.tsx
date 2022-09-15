@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
-
-import Footer from "../Components/Footer";
-import Navbar from "../Components/Navbar";
 import { useGlobalState } from "../logic/context";
 
 /* if (!open) return null;

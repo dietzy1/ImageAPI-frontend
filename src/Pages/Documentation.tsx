@@ -1,4 +1,4 @@
-import Codeblocks, { codeblocktype } from "../Components/Codeblocks";
+import Codeblocks from "../Components/Codeblocks";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
@@ -11,8 +11,8 @@ function Documentation() {
       <Sidebar />
 
       <div className="flex flex-col justify-center pt-24 ">
-        <div className="max-w-[850px] w-full mx-auto p-8 px-8 ">
-          <h2 className="text-7xl font-bold text-white text-center mb-8">
+        <div className="max-w-[1100px] w-full mx-auto p-8 px-8 ">
+          <h2 className="text-7xl font-bold text-white mb-8">
             API-Documentation
           </h2>
 
@@ -86,11 +86,12 @@ function Documentation() {
                 Json fields
               </span>
               <span className="mb-4">
-                The objects contains the following fields:
+                The objects contains the following fields. Below shows a
+                typescript custom type that implements the json object.
               </span>
               <Codeblocks code={type} startingLineNumber={1} codeBlock={true} />
 
-              <h2 className="text-4xl font-bold text-white underline">
+              <h2 className="text-4xl font-bold text-white underline py-4">
                 Endpoints
               </h2>
               <div className="flex flex-col text-gray-400 py-2">
@@ -98,20 +99,9 @@ function Documentation() {
                   <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
                   Supported GET endpoints
                 </span>
-                <span className="mb-4">
-                  The underlying table shows the supported currently supported
-                  endpoints in v0 of the api.
-                </span>
-                <span className="mb-4">Random /api/v0/image/random/</span>
-                <span className="mb-4">by uuid /api/v0/image/:uuid</span>
-                <span className="mb-4">
-                  multiple random images /api/v0/images/
-                </span>
-                <span className="mb-4">
-                  multiple images by tags /api/v0/images/:tags
-                </span>
+
                 {/*This is the breakpoint where shit is being put in*/}
-                <div className="overflow-x-auto relative shadow-md sm:rounded-lg pb-4">
+                <div className="overflow-x-auto relative shadow-md sm:rounded-lg py-4">
                   <table className="w-full text-base text-left text-gray-400">
                     <thead className="text-xs uppercase bg-hybrid  text-gray-400">
                       <tr>
@@ -128,7 +118,6 @@ function Documentation() {
                         </th>
                         <td className="py-4 px-6">{endpoint1}</td>
                       </tr>
-
                       <tr className="border-b bg-hybrid dark:border-gray-700 h-20">
                         <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                           <span className="bg-greeny px-5 py-4 rounded-lg">
@@ -159,14 +148,81 @@ function Documentation() {
                 {/*This is the breakpoint*/}
                 <span className="mb-1 text-sm font-normal leading-none text-gray-500">
                   <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                  API access
+                  Required query parameters.
+                </span>
+                <span className="mb-4">
+                  All GET endpoints require an API-key as a query parameter. If
+                  none is provided the request will be denied.
+                </span>
+                <span className="mb-4">
+                  Quantity is one of the optional query parameters. And
+                  determines the number of images to be returned. If the
+                  parameter is not specified then the default value of 10 is
+                  used.
+                </span>
+                <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                  <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                  Optional query parameters.
+                </span>
+                <span className="mb-4">
+                  Only the GET endpoints for multiple images currently support
+                  optional query parameters.
+                </span>
+                <span className="mb-4">
+                  Quantity is one of the optional query parameters. And
+                  determines the number of images to be returned. If the
+                  parameter is not specified then the default value of 10 is
+                  used.
+                </span>
+
+                <div className="flex flex-col text-gray-400">
+                  <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                    <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                    /api/v0/image/random/
+                  </span>
+                </div>
+                <span className="mb-4">
+                  Returns a single pepe image object that is randomly selected
+                  from the image database.
+                </span>
+                <div className="flex flex-col text-gray-400">
+                  <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                    <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                    /api/v0/image/:uuid
+                  </span>
+                </div>
+                <span className="mb-4">
+                  Returns a single pepe image object that is selected based on
+                  UUID provided in the request.
+                </span>
+                <div className="flex flex-col text-gray-400">
+                  <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                    <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                    /api/v0/images/:tags
+                  </span>
+                </div>
+                <span className="mb-4">
+                  Returns an array of pepe image objects that are selected based
+                  on the tags provided in the request. Quantity can be used as a
+                  query parameter.
                 </span>
               </div>
+              <div className="flex flex-col text-gray-400">
+                <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                  <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                  /api/v0/images/random/
+                </span>
+              </div>
+              <span className="mb-4">
+                Returns an array of pepe image objects that are randomly
+                selected from the image database. Quantity can be used as a
+                query parameter.
+              </span>
             </div>
-            <h2 className="text-4xl font-bold text-white underline">
+            <h2 className="text-4xl font-bold text-white underline pb-4">
               API key usage
             </h2>
-            <div className="flex flex-col text-gray-400 py-2">
+            <div className="flex flex-col text-gray-400">
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
                 <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
                 How to
@@ -187,20 +243,72 @@ function Documentation() {
               <div className="flex flex-col text-gray-400 py-2">
                 <span className="mb-1 text-sm font-normal leading-none text-gray-500">
                   <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                  Example usage in JS
-                  {/*Add some codeblocks*/}
-                  {/*  <Codeblocks {...{codeobject}} /> */}
-                  {/* <Codeblocks {"code", 1}/> */}
-                  <Codeblocks
-                    code={code}
-                    startingLineNumber={1}
-                    codeBlock={true}
-                  />
+                  Example implementation
                 </span>
-                <span></span>
+                <span className="mb-4">
+                  It is good practise to keep the API-key in a env/config file,
+                  and read in the key in order to not expose the key. The
+                  following shows an example of how to do this in typescript.
+                </span>
               </div>
-            </div>
+              <Codeblocks code={env1} startingLineNumber={1} codeBlock={true} />
+              <span className="mb-4">
+                And then you can use ${`{process.env.REACT_APP_API_KEY}`} to
+                access the key.
+              </span>
+              <Codeblocks code={env} startingLineNumber={1} codeBlock={true} />
+              <h2 className="text-4xl font-bold text-white underline mb-5 mt-5">
+                Full example of typescript implementation
+              </h2>
+              <span className="mb-1 text-sm font-normal leading-none text-gray-500 py-2">
+                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                /api/v0/image/:uuid
+              </span>
 
+              <span className="mb-4">
+                If a single image is requested then a single json object will be
+                returned. If multiple images are requested an array of json
+                objects will be returned.
+              </span>
+              <Codeblocks
+                code={code1}
+                startingLineNumber={1}
+                codeBlock={true}
+              />
+              <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                /api/v0/image/random/
+              </span>
+
+              <span className="mb-4">
+                If a single image is requested then a single json object will be
+                returned. If multiple images are requested an array of json
+                objects will be returned.
+              </span>
+              <Codeblocks code={code} startingLineNumber={1} codeBlock={true} />
+              <span className="mb-1 text-sm font-normal leading-none text-gray-500 mt-4">
+                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                /api/v0/image/random/
+              </span>
+
+              <span className="mb-4">
+                If a single image is requested then a single json object will be
+                returned. If multiple images are requested an array of json
+                objects will be returned.
+              </span>
+              <Codeblocks code={code} startingLineNumber={1} codeBlock={true} />
+              <span className="mb-1 text-sm font-normal leading-none text-gray-500 mt-4">
+                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                /api/v0/image/random/
+              </span>
+
+              <span className="mb-4">
+                If a single image is requested then a single json object will be
+                returned. If multiple images are requested an array of json
+                objects will be returned.
+              </span>
+              <Codeblocks code={code} startingLineNumber={1} codeBlock={true} />
+            </div>
             <div className="mt-24" />
           </div>
         </div>
@@ -209,17 +317,22 @@ function Documentation() {
     </div>
   );
 }
+export default Documentation;
 
-/* const codeobject: codeblocktype = {
-  code: `var sys = require("sys");
-  sys.puts("Hello World");"`,
-  language: "js",
-  showLineNumbers: true,
-  startingLineNumber: 1,
-  theme: "dark",
-  highlight: "",
-  codeBlock: true,
-}; */
+const type = `export type imageType = {
+  title: string;
+  uuid: string;
+  tags: Array<string>;
+  created_at: string;
+  filepath: string;
+  filesize: number;
+};`;
+
+const env =
+  `fetch("https://imageapi-production.up.railway.app/api/v0/image/random/&key=$` +
+  `{process.env.REACT_APP_API_KEY}")`;
+
+const env1 = `REACT_APP_API_KEY=98F5-120Awoke-684okweok`;
 
 const code =
   `const getImagesEmpty = async () => {
@@ -237,16 +350,53 @@ const code =
   console.log(images);
 };`;
 
-const type = `export type imageType = {
-  title: string;
-  uuid: string;
-  tags: Array<string>;
-  created_at: string;
-  filepath: string;
-  filesize: number;
+const code1 =
+  `const getImagesEmpty = async () => {
+  try {
+    const res = await fetch(
+      "https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=10&key=$` +
+  `{process.env.REACT_APP_API_KEY}",
+      {
+        method: "GET",
+      });
+    setImages(await res.json());
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(images);
 };`;
 
-export default Documentation;
+const code2 =
+  `const getImagesEmpty = async () => {
+  try {
+    const res = await fetch(
+      "https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=10&key=$` +
+  `{process.env.REACT_APP_API_KEY}",
+      {
+        method: "GET",
+      });
+    setImages(await res.json());
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(images);
+};`;
+
+const code3 =
+  `const getImagesEmpty = async () => {
+  try {
+    const res = await fetch(
+      "https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=10&key=$` +
+  `{process.env.REACT_APP_API_KEY}",
+      {
+        method: "GET",
+      });
+    setImages(await res.json());
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(images);
+};`;
 
 const endpoint1 =
   "https://imageapi-production.up.railway.app/api/v0/image/random/?key={key}";

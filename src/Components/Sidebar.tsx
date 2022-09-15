@@ -1,7 +1,7 @@
 function Sidebar() {
   return (
     <div>
-      <div className="fixed top-24 left-5 h-screen text-white w-56 m-0 flex flex-col whitespace-nowrap text-bold border-r-[1px]">
+      <div className="fixed top-24 left-12 h-screen text-white w-56 m-0 flex flex-col whitespace-nowrap text-bold border-r-[1px]">
         <h1 className="mb-5 text-xl">API-documentation</h1>
         <ul>
           <h1 className="text-l m-3">Getting started</h1>
