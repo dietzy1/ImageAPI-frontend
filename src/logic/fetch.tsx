@@ -12,10 +12,9 @@ export async function Loginfunc(username: string, password: string) {
     }
   );
   if (!res.ok) {
-    console.log("res not ok login");
     return Promise.resolve(false);
   }
-  console.log("res ok login");
+
   return Promise.resolve(true);
 }
 

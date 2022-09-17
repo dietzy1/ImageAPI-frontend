@@ -16,11 +16,9 @@ export function Loginpage({ open, onClose }: any) {
 
   const onsubmitfunc = async (e: any) => {
     e.preventDefault();
-    console.log("Logging in");
     const ok = await Loginfunc(username, password);
     if (ok) {
       dispatch({ user: true });
-      console.log(state.user);
     }
   };
 

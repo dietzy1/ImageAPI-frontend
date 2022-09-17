@@ -4,7 +4,6 @@ const Searchbar = ({ triggerParentUpdate }: any) => {
   const [query, setQuery] = useState("");
   const onSubmit = (e: any) => {
     e.preventDefault();
-
     triggerParentUpdate(query);
   };
 

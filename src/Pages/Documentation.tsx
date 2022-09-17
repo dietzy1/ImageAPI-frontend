@@ -2,16 +2,18 @@ import Codeblocks from "../Components/Codeblocks";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
+import Table, { Uppertable } from "../Components/Table";
 
 function Documentation() {
   //mt is 44max-w-[650px]
+
   return (
     <div>
       <Navbar />
       <Sidebar />
 
       <div className="flex flex-col justify-center pt-24 ">
-        <div className="max-w-[1100px] w-full mx-auto p-8 px-8 ">
+        <div className="max-w-[1050px] w-full mx-auto p-8 px-8 ">
           <h2 className="text-7xl font-bold text-white mb-8">
             API-Documentation
           </h2>
@@ -95,58 +97,18 @@ function Documentation() {
                 Endpoints
               </h2>
               <div className="flex flex-col text-gray-400 py-2">
-                <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                <span className="mb-1 text-sm font-normal leading-none text-gray-500 pb-4">
                   <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
                   Supported GET endpoints
                 </span>
 
-                {/*This is the breakpoint where shit is being put in*/}
-                <div className="overflow-x-auto relative shadow-md sm:rounded-lg py-4">
-                  <table className="w-full text-base text-left text-gray-400">
-                    <thead className="text-xs uppercase bg-hybrid  text-gray-400">
-                      <tr>
-                        <th className="py-3 px-8">Method</th>
-                        <th className="py-3 px-6">URL</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className=" border-b bg-hybrid dark:border-gray-700 h-20">
-                        <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <span className="bg-greeny px-5 py-4 rounded-lg">
-                            GET
-                          </span>
-                        </th>
-                        <td className="py-4 px-6">{endpoint1}</td>
-                      </tr>
-                      <tr className="border-b bg-hybrid dark:border-gray-700 h-20">
-                        <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <span className="bg-greeny px-5 py-4 rounded-lg">
-                            GET
-                          </span>
-                        </th>
-                        <td className="py-4 px-6">{endpoint2}</td>
-                      </tr>
-                      <tr className=" border-b bg-hybrid dark:border-gray-700 h-20">
-                        <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <span className="bg-greeny px-5 py-4 rounded-lg">
-                            GET
-                          </span>
-                        </th>
-                        <td className="py-4 px-6">{endpoint3}</td>
-                      </tr>
-                      <tr className="border-b bg-hybrid border-gray-700 h-20">
-                        <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <span className="bg-greeny px-5 py-4 rounded-lg">
-                            GET
-                          </span>
-                        </th>
-                        <td className="py-4 px-6">{endpoint4}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                {/*This is the breakpoint*/}
-                <span className="mb-1 text-sm font-normal leading-none text-gray-500">
+                <Uppertable header1={"METHOD"} header2={"URL"} />
+                <Table endpoint={endpoint1} />
+                <Table endpoint={endpoint2} />
+                <Table endpoint={endpoint3} />
+                <Table endpoint={endpoint4} />
+
+                <span className="mb-1 text-sm font-normal leading-none text-gray-500 pt-4">
                   <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
                   Required query parameters.
                 </span>
@@ -258,7 +220,7 @@ function Documentation() {
               </span>
               <Codeblocks code={env} startingLineNumber={1} codeBlock={true} />
               <h2 className="text-4xl font-bold text-white underline mb-5 mt-5">
-                Full example of typescript implementation
+                Full example of ts implementation
               </h2>
               <span className="mb-1 text-sm font-normal leading-none text-gray-500 py-2">
                 <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />

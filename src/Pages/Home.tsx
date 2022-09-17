@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
-import FrontGallery from "../Components/FrontGallery";
+import Imageslider from "../Components/Imageslider";
 import Gallery from "../Components/Gallery";
 import Text from "../Components/Text";
 import Footer from "../Components/Footer";
@@ -9,14 +9,14 @@ import { useGlobalState } from "../logic/context";
 
 import "../index.css";
 
-export type imageType = {
+export interface imageType {
   title: string;
   uuid: string;
   tags: Array<string>;
   created_at: string;
   filepath: string;
   filesize: number;
-};
+}
 
 function Home() {
   const [images, setImages] = useState<imageType[]>({} as imageType[]);
@@ -24,10 +24,8 @@ function Home() {
   const [query, setQuery] = useState("");
   const [state, dispatch] = useGlobalState();
 
-  const updateQueryState = (state: any) => {
-    console.log("updateQueryState");
+  const updateQueryState = (state: string) => {
     setQuery(state);
-    console.log(query);
   };
 
   useEffect(() => {
@@ -46,13 +44,11 @@ function Home() {
           method: "GET",
         }
       );
-
       setImages(await res.json());
       setLoading(false);
     } catch (error) {
       console.log(error);
     }
-    console.log(images);
   };
 
   //Fetches images from the server
@@ -75,11 +71,9 @@ function Home() {
     const ok = await refreshSessionfunc();
     if (ok) {
       dispatch({ user: true });
-      console.log(state.user);
     }
     if (!ok) {
       dispatch({ user: false });
-      console.log(state.user);
     }
   }
 
@@ -88,7 +82,7 @@ function Home() {
       <div className="h-screen">
         <Navbar triggerParentUpdate={updateQueryState} />
         <Text />
-        <FrontGallery />
+        <Imageslider />
         <div>
           {!loading && images.length === 0 && (
             <div>
@@ -108,7 +102,7 @@ function Home() {
             </div>
           ) : (
             <div>
-              <div className="text-white text-3xl text-center">
+              <div id="gallery" className="text-white text-3xl text-center">
                 Use the search bar to find your favorite pepe!
               </div>
               <div className="text-greeny text-center text-xl">

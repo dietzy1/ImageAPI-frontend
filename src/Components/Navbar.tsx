@@ -15,11 +15,9 @@ const Navbar = ({ triggerParentUpdate }: any) => {
 
   const onsubmitfunc = async (e: any) => {
     e.preventDefault();
-    console.log("Logging out yep");
     const ok = await Logoutfunc();
     if (ok) {
       dispatch({ user: false });
-      console.log(state.user);
     }
   };
 
