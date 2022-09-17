@@ -34,7 +34,7 @@ function Documentation() {
               </span>
 
               <span className="mb-4">
-                Register for API usage by clicking the sign up bottum at the top
+                Register for API usage by clicking the sign up buttom at the top
                 right. This part is done purely to ratelimit overly excessive
                 use. Once you have been successfully registered as a user, go
                 ahead and click the account button at the top right which leads
