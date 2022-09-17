@@ -1,3 +1,5 @@
+import React from "react";
+
 function Table({ endpoint }: { endpoint: string }) {
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -14,10 +16,9 @@ function Table({ endpoint }: { endpoint: string }) {
     </div>
   );
 }
-
 export default Table;
 
-export function Uppertable({
+export function UpperTable({
   header1,
   header2,
 }: {

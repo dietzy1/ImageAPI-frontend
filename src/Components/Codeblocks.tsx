@@ -1,4 +1,6 @@
-import { CopyBlock, hybrid } from "react-code-blocks";
+import { CopyBlock } from "react-code-blocks";
+import { Theme } from "../Config/CustomThemeCodeBlocks";
+//import { CopyBlock, sunburst } from "react-code-blocks";
 
 export interface codeblocktype {
   code: string;
@@ -12,13 +14,13 @@ export interface codeblocktype {
 
 function Codeblocks({ code, startingLineNumber, codeBlock }: codeblocktype) {
   return (
-    <div className="font-light">
+    <div className="font-light font-mono">
       <CopyBlock
         text={code}
         language={"ts"}
         showLineNumbers={true}
         startingLineNumber={startingLineNumber}
-        theme={hybrid}
+        theme={Theme}
         codeBlock={codeBlock}
       />
     </div>

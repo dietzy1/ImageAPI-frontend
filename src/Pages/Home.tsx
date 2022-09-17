@@ -22,7 +22,7 @@ function Home() {
   const [images, setImages] = useState<imageType[]>({} as imageType[]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
-  const [state, dispatch] = useGlobalState();
+  const [dispatch] = useGlobalState();
 
   const updateQueryState = (state: string) => {
     setQuery(state);
