@@ -24,7 +24,9 @@ export const GlobalStateProvider = ({
   );
   return (
     <GlobalStateContext.Provider value={state as defaultGlobalStateType}>
-      <DispatchStateContext.Provider value={dispatch as any}>
+      <DispatchStateContext.Provider
+        value={dispatch as React.Dispatch<defaultGlobalStateType>}
+      >
         {children}
       </DispatchStateContext.Provider>
     </GlobalStateContext.Provider>

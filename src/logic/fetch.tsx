@@ -53,7 +53,7 @@ export async function refreshSessionfunc() {
 
 export async function Logoutfunc() {
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/signout/",
+    "https://imageapi-production.up.railway.app/auth/signout/",
     {
       method: "POST",
       credentials: "include",

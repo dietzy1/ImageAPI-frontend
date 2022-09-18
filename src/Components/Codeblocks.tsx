@@ -12,13 +12,18 @@ export interface codeblocktype {
   codeBlock: boolean;
 }
 
-function Codeblocks({ code, startingLineNumber, codeBlock }: codeblocktype) {
+function Codeblocks({
+  code,
+  startingLineNumber,
+  codeBlock,
+  showLineNumbers,
+}: codeblocktype) {
   return (
     <div className="font-light font-mono">
       <CopyBlock
         text={code}
         language={"ts"}
-        showLineNumbers={true}
+        showLineNumbers={showLineNumbers}
         startingLineNumber={startingLineNumber}
         theme={Theme}
         codeBlock={codeBlock}

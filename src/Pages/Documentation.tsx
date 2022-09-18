@@ -11,16 +11,24 @@ function Documentation() {
     <div>
       <Navbar />
       <Sidebar />
-      <div className="flex flex-col justify-center pt-24 ">
+      <div className="flex flex-col justify-center pt-28 ">
         <div className="max-w-[1050px] w-full mx-auto p-8 px-8 text-[#fff] text-base font-normal">
-          <h2 className="text-7xl font-bold  mb-8">API-Documentation</h2>
-          <h2 className="text-4xl font-bold  underline mb-5 pl-4">
+          <h2 id="API-Documentation" className="text-6xl font-bold  mb-8">
+            API-Documentation
+          </h2>
+          <h2
+            id="Getting started"
+            className="text-4xl font-bold  underline mb-5 pl-4"
+          >
             Getting started
           </h2>
           <div className="relative border-l border-gray-700 pl-4 mb-10 mt-2">
             <div className="flex flex-col py-2">
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full -left-1.5 border border-gray-900 bg-gray-700 " />
+                <div
+                  id="API access"
+                  className="absolute w-3 h-3 rounded-full -left-1.5 border border-gray-900 bg-gray-700 "
+                />
                 API access
               </span>
 
@@ -29,7 +37,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border border-gray-900 bg-gray-700" />
+                <div
+                  id="Registration"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border border-gray-900 bg-gray-700"
+                />
                 Registration
               </span>
 
@@ -42,7 +53,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border border-gray-900 bg-gray-700" />
+                <div
+                  id="Generate API key"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border border-gray-900 bg-gray-700"
+                />
                 Generate API key
               </span>
 
@@ -55,7 +69,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="Terms of use"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 Terms of use
               </span>
 
@@ -66,12 +83,18 @@ function Documentation() {
                 terminate any user incase of malicious interaction.
               </span>
 
-              <h2 className="text-4xl font-bold text-white underline mb-5">
+              <h2
+                id="Data model"
+                className="text-4xl font-bold text-white underline mb-5"
+              >
                 Data model
               </h2>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="Format"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 Format
               </span>
 
@@ -86,7 +109,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="Json fields"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 Json fields
               </span>
 
@@ -97,12 +123,18 @@ function Documentation() {
 
               <Codeblocks code={type} startingLineNumber={1} codeBlock={true} />
 
-              <h2 className="text-4xl font-bold text-white underline py-4">
+              <h2
+                id="Endpoints"
+                className="text-4xl font-bold text-white underline py-4"
+              >
                 Endpoints
               </h2>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500 pb-4">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="Supported GET endpoints"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 Supported GET endpoints
               </span>
 
@@ -113,8 +145,11 @@ function Documentation() {
               <Table endpoint={endpoint4} />
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500 pt-4">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                Required query parameters.
+                <div
+                  id="Required query parameters"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
+                Required query parameters
               </span>
 
               <span className="mb-4">
@@ -129,8 +164,11 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                Optional query parameters.
+                <div
+                  id="Optional query parameters"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
+                Optional query parameters
               </span>
 
               <span className="mb-4">
@@ -145,7 +183,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="/api/v0/image/random/"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 /api/v0/image/random/
               </span>
 
@@ -155,7 +196,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="/api/v0/image/:uuid"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 /api/v0/image/:uuid
               </span>
 
@@ -165,7 +209,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="/api/v0/images/:tags"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 /api/v0/images/:tags
               </span>
 
@@ -176,7 +223,10 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="/api/v0/images/random/"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 /api/v0/images/random/
               </span>
 
@@ -186,12 +236,18 @@ function Documentation() {
                 query parameter.
               </span>
 
-              <h2 className="text-4xl font-bold text-white underline pb-4">
-                API key usage
+              <h2
+                id="How to use the API key"
+                className="text-4xl font-bold text-white underline pb-4"
+              >
+                How to use the API key
               </h2>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
+                <div
+                  id="How to"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
                 How to
               </span>
 
@@ -209,8 +265,11 @@ function Documentation() {
               </span>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                Example implementation
+                <div
+                  id="env file"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
+                env file
               </span>
 
               <span className="mb-4">
@@ -219,22 +278,38 @@ function Documentation() {
                 following shows an example of how to do this in typescript.
               </span>
 
-              <Codeblocks code={env1} startingLineNumber={1} codeBlock={true} />
+              <Codeblocks
+                code={env1}
+                startingLineNumber={1}
+                codeBlock={true}
+                showLineNumbers={false}
+              />
 
               <span className="mb-4">
                 And then you can use ${`{process.env.REACT_APP_API_KEY}`} to
                 access the key.
               </span>
 
-              <Codeblocks code={env} startingLineNumber={1} codeBlock={true} />
+              <Codeblocks
+                code={env}
+                startingLineNumber={1}
+                codeBlock={true}
+                showLineNumbers={false}
+              />
 
-              <h2 className="text-4xl font-bold text-white underline mb-5 mt-5">
-                Full example of ts implementation
+              <h2
+                id="Full example of endpoint implementation"
+                className="text-4xl font-bold text-white underline mb-5 mt-5"
+              >
+                Full example of endpoint implementation
               </h2>
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500 py-2">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                /api/v0/image/:uuid
+                <div
+                  id="1/api/v0/image/random/"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
+                /api/v0/image/random/
               </span>
 
               <span className="mb-4">
@@ -247,11 +322,15 @@ function Documentation() {
                 code={code1}
                 startingLineNumber={1}
                 codeBlock={true}
+                showLineNumbers={true}
               />
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                /api/v0/image/random/
+                <div
+                  id="1/api/v0/image/:uuid"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
+                /api/v0/image/:uuid
               </span>
 
               <span className="mb-4">
@@ -264,11 +343,15 @@ function Documentation() {
                 code={code2}
                 startingLineNumber={1}
                 codeBlock={true}
+                showLineNumbers={true}
               />
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500 mt-4">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                /api/v0/image/random/
+                <div
+                  id="1/api/v0/images/:tags"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
+                /api/v0/images/:tags
               </span>
 
               <span className="mb-4">
@@ -281,11 +364,15 @@ function Documentation() {
                 code={code3}
                 startingLineNumber={1}
                 codeBlock={true}
+                showLineNumbers={true}
               />
 
               <span className="mb-1 text-sm font-normal leading-none text-gray-500 mt-4">
-                <div className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700" />
-                /api/v0/image/random/
+                <div
+                  id="1/api/v0/images/random/"
+                  className="absolute w-3 h-3 rounded-full  -left-1.5 border dark:border-gray-900 dark:bg-gray-700"
+                />
+                /api/v0/images/random/
               </span>
 
               <span className="mb-4">
@@ -298,9 +385,10 @@ function Documentation() {
                 code={code4}
                 startingLineNumber={1}
                 codeBlock={true}
+                showLineNumbers={true}
               />
 
-              <div className="mt-14" />
+              <div className="mt-4" />
             </div>
           </div>
         </div>
@@ -398,10 +486,3 @@ const endpoint3 =
   "https://imageapi-production.up.railway.app/api/v0/images/random/?quantity={quantity}&key={key}";
 const endpoint4 =
   "https://imageapi-production.up.railway.app/api/v0/images/tags/{tags}?quantity={quantity}&key={key}";
-/* const endpoint4 =
-const endpoint5 =
-const endpoint6 =
-const endpoint7 =
-const endpoint8 =
-const endpoint9 =
-const endpoint10 = */

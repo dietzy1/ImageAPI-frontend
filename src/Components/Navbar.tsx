@@ -17,7 +17,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
     e.preventDefault();
     const ok = await Logoutfunc();
     if (ok) {
-      dispatch({ user: false });
+      dispatch({ user: true });
     }
   };
 

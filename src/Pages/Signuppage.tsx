@@ -30,7 +30,7 @@ export function Signuppage({ open, onClose }: any) {
           e.stopPropagation();
         }}
       >
-        <form className="max-w-[450px] w-full mx-auto bg-[#151922] p-8  rounded-lg">
+        <form className="max-w-[450px] w-full mx-auto bg-hybrid p-8  rounded-lg border-2 border-gray-800">
           <p
             onClick={onClose}
             className="flex justify-end text-white text-bold text-xl"
@@ -40,10 +40,10 @@ export function Signuppage({ open, onClose }: any) {
           <h2 className="text-4xl font-bold text-white text-center">Sign up</h2>
           <div className="flex flex-col text-gray-400 py-2">
             <label className="text-start" htmlFor="username">
-              User Name
+              Username
             </label>
             <input
-              className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-greeny focus:bg-gray-800 focus:outline-none"
+              className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-greeny focus:bg-gray-800 focus:outline-none border border-gray-800"
               type="text"
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -53,7 +53,7 @@ export function Signuppage({ open, onClose }: any) {
               Password
             </label>
             <input
-              className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-greeny focus:bg-gray-800 focus:outline-none"
+              className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-greeny focus:bg-gray-800 focus:outline-none border border-gray-800"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
             />

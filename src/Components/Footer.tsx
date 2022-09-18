@@ -14,7 +14,7 @@ function Footer() {
 
   useEffect(() => {
     healthcheckfunc();
-  }, [healthcheckfunc]);
+  }, []);
 
   return (
     <footer className="shadow px-6 fixed bottom-0 w-screen bg-darky pt-3 mt-20 ">
