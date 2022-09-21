@@ -5,7 +5,7 @@ export const defaultglobalState = {
   user: false,
 };
 
-interface defaultGlobalStateType {
+export interface defaultGlobalStateType {
   user: boolean;
 }
 

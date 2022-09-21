@@ -1,6 +1,7 @@
 import { imageType } from "../Pages/Home";
 
 function Gallery({ image }: { image: imageType }) {
+  //I need to perform type checking here since image.tags.join is failing if image.tags is undefined
   return (
     <div className="shadow-lg text-white object-top relative">
       <img src={image.filepath} alt="" className="w-full mb-12 rounded-lg" />

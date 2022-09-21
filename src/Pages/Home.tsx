@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Navbar from "../Components/Navbar";
 import Imageslider from "../Components/Imageslider";
 import Gallery from "../Components/Gallery";
@@ -18,6 +18,8 @@ export interface imageType {
   filesize: number;
 }
 
+//I think it might be creating 2 requests one prior to the query being initialized
+//I need to find out why it returns all of the images when the query clearly only asks for 1 image to be returned
 function Home() {
   const [images, setImages] = useState<imageType[]>({} as imageType[]);
   const [loading, setLoading] = useState(true);
@@ -28,15 +30,18 @@ function Home() {
     setQuery(state);
   };
 
-  useEffect(() => {
-    onsubmit();
-    if (query === "") {
-      getImagesEmpty();
-    } else getImages(query);
-  }, [query]);
+  const checkAuth = useCallback(async () => {
+    const ok = await refreshSessionfunc();
+    if (ok) {
+      dispatch({ user: true });
+    }
+    if (!ok) {
+      dispatch({ user: false });
+    }
+  }, [dispatch]);
 
   //Hardcoded images to display something to gallery by default
-  const getImagesEmpty = async () => {
+  const getImagesNoQuery = useCallback(async () => {
     try {
       const res = await fetch(
         `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
@@ -49,25 +54,40 @@ function Home() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [setImages, setLoading]);
 
   //Fetches images from the server
-  const getImages = async (query: string) => {
-    try {
-      const res = await fetch(
-        `https://imageapi-production.up.railway.app/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
-        {
-          method: "GET",
-        }
-      );
-      setImages(await res.json());
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const getImages = useCallback(
+    async (query: string) => {
+      try {
+        const res = await fetch(
+          `https://imageapi-production.up.railway.app/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
+          {
+            method: "GET",
+          }
+        );
+        setImages(await res.json());
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [setImages, setLoading]
+  );
 
-  async function onsubmit() {
+  useEffect(() => {
+    checkAuth();
+    if (query === "") {
+      getImagesNoQuery();
+    } else
+      try {
+        getImages(query);
+      } catch (error) {
+        console.log(error);
+      }
+  }, [query, checkAuth, getImagesNoQuery, getImages]);
+
+  /*  async function onsubmit() {
     const ok = await refreshSessionfunc();
     if (ok) {
       dispatch({ user: true });
@@ -75,7 +95,7 @@ function Home() {
     if (!ok) {
       dispatch({ user: false });
     }
-  }
+  } */
 
   return (
     <div>

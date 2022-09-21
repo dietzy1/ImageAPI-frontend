@@ -33,14 +33,17 @@ const Searchbar = ({ triggerParentUpdate }: any) => {
             type="text"
             placeholder="Search Image Tag"
           />
-          <Link to="gallery" spy={true} smooth={true} offset={-90}>
-            <button
-              className="flex-shrink-0 focus:outline-none focus:ring-greeny font-medium  bg-greeny hover:bg-teal-700 mr-4 hover:border-teal-700  text-white py-1 px-2 rounded-lg text-md"
-              type="submit"
-            >
+          {/*query doesn't work with scrolling links wrapping*/}
+          {/*     <Link to="gallery" spy={true} smooth={true} offset={-90}> */}
+          <button
+            className="flex-shrink-0 focus:outline-none focus:ring-greeny font-medium  bg-greeny hover:bg-teal-700 mr-4 hover:border-teal-700  text-white py-1 px-2 rounded-lg text-md"
+            type="submit"
+          >
+            <Link to="gallery" spy={true} smooth={true} offset={-90}>
               Search
-            </button>
-          </Link>
+            </Link>
+          </button>
+          {/*     </Link> */}
         </div>
       </form>
     </div>
