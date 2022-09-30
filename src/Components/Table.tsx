@@ -7,8 +7,10 @@ function Table({ endpoint }: { endpoint: string }) {
         <tbody>
           <tr className=" border-b bg-hybrid dark:border-gray-700 h-20">
             <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-              <span className="bg-greeny px-5 py-4 rounded-lg">GET</span>
-              <span className=" px-5 mx-16 py-4 ">{endpoint}</span>
+              <span className="bg-greeny px-5 py-4 rounded-lg text-xs">
+                GET
+              </span>
+              <span className=" px-5 mx-16 py-4 text-xs ">{endpoint}</span>
             </th>
           </tr>
         </tbody>
@@ -27,12 +29,12 @@ export function UpperTable({
 }) {
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
-      <table className="w-full text-base text-left text-gray-400">
+      <table className="w-full text-left text-gray-400">
         <thead className="text-xs uppercase bg-hybrid  text-gray-400 border-b border-gray-700">
           <tr>
             <th>
-              <th className="py-3 px-8 ">{header1}</th>
-              <th className="py-3 px-14 ">{header2}</th>
+              <th className="py-3 px-8 text-xs">{header1}</th>
+              <th className="py-3 px-14 text-xs">{header2}</th>
             </th>
           </tr>
         </thead>

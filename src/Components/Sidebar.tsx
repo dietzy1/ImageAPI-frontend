@@ -7,9 +7,12 @@ import { Link } from "react-scroll";
 function Sidebar() {
   return (
     <div>
-      <div className="fixed top-36 left-10 h-screen  m-0 flex flex-col whitespace-nowrap border-r-[1px] text-[#fff] ">
+      {/*border-r-[1px]*/}
+      <div className="fixed top-36 left-10 h-screen  m-0 flex flex-col whitespace-nowrap  text-[#fff] text-sm ">
         <Link to="API-Documentation" spy={true} smooth={true} offset={-100}>
-          <h1 className="mb-2 text-xl hover:text-greeny">API-documentation</h1>
+          <h1 className="mb-2 ml-3 text-2xl font-bold hover:text-greeny">
+            API-documentation
+          </h1>
         </Link>
 
         <ul>
@@ -20,22 +23,22 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="API access" spy={true} smooth={true} offset={-75}>
                 {"> "}API access
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="Registration" spy={true} smooth={true} offset={-75}>
                 {"> "}Registration
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="Generate API key" spy={true} smooth={true} offset={-75}>
                 {"> "}Generate API key
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="Terms of use" spy={true} smooth={true} offset={-75}>
                 {"> "}Terms of use
               </Link>
@@ -49,13 +52,13 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="Format" spy={true} smooth={true} offset={-75}>
                 {"> "}Format
               </Link>
             </li>
 
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="Json fields" spy={true} smooth={true} offset={-75}>
                 {"> "}Json fields
               </Link>
@@ -69,7 +72,7 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="Supported GET endpoints"
                 spy={true}
@@ -79,7 +82,7 @@ function Sidebar() {
                 {"> "}Supported GET endpoints
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="Required query parameters"
                 spy={true}
@@ -89,7 +92,7 @@ function Sidebar() {
                 {"> "}Required query parameters
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="Optional query parameters"
                 spy={true}
@@ -99,7 +102,7 @@ function Sidebar() {
                 {"> "}Optional query parameters
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="/api/v0/image/random/"
                 spy={true}
@@ -109,7 +112,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/random/
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="/api/v0/image/:uuid"
                 spy={true}
@@ -119,7 +122,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/:uuid
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="/api/v0/images/:tags"
                 spy={true}
@@ -129,7 +132,7 @@ function Sidebar() {
                 {"> "}/api/v0/images/:tags
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="/api/v0/images/random/"
                 spy={true}
@@ -152,12 +155,12 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="How to" spy={true} smooth={true} offset={-75}>
                 {"> "}How to
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link to="env file" spy={true} smooth={true} offset={-75}>
                 {"> "}env file
               </Link>
@@ -179,7 +182,7 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="1/api/v0/image/random/"
                 spy={true}
@@ -189,7 +192,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/random/
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="1/api/v0/image/:uuid"
                 spy={true}
@@ -199,7 +202,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/:uuid
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="1/api/v0/images/:tags"
                 spy={true}
@@ -209,7 +212,7 @@ function Sidebar() {
                 {"> "}/api/v0/images/:tags
               </Link>
             </li>
-            <li className="hover:text-greeny">
+            <li className="hover:text-greeny mb-1">
               <Link
                 to="1/api/v0/images/random/"
                 spy={true}

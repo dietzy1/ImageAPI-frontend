@@ -12,7 +12,7 @@ import { createPortal } from "react-dom";
 export function Loginpage({ open, onClose }: any) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [dispatch] = useGlobalState();
+  const [state, dispatch] = useGlobalState();
 
   const onsubmitfunc = async (e: any) => {
     e.preventDefault();
@@ -20,6 +20,7 @@ export function Loginpage({ open, onClose }: any) {
     if (ok) {
       dispatch({ user: true });
     }
+    console.log(state.user);
     onClose();
   };
 

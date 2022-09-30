@@ -17,12 +17,13 @@ function Codeblocks({
   startingLineNumber,
   codeBlock,
   showLineNumbers,
+  language,
 }: codeblocktype) {
   return (
     <div className="font-light font-mono">
       <CopyBlock
         text={code}
-        language={"ts"}
+        language={language}
         showLineNumbers={showLineNumbers}
         startingLineNumber={startingLineNumber}
         theme={Theme}

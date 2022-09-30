@@ -9,7 +9,7 @@ const Searchbar = ({ triggerParentUpdate }: any) => {
   };
 
   return (
-    <div className="rounded w-[600px] mx-auto  ">
+    <div className="rounded w-full">
       <form onSubmit={onSubmit}>
         <div className="flex items-center border-b-2  py-2 bg-white rounded-xl">
           <svg

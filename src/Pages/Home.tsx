@@ -16,6 +16,9 @@ export interface imageType {
   created_at: string;
   filepath: string;
   filesize: number;
+  width: number;
+  height: number;
+  blurhash: string;
 }
 
 //I think it might be creating 2 requests one prior to the query being initialized
@@ -44,7 +47,8 @@ function Home() {
   const getImagesNoQuery = useCallback(async () => {
     try {
       const res = await fetch(
-        `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
+        // `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
+        `http://localhost:8000/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
         {
           method: "GET",
         }
@@ -53,6 +57,7 @@ function Home() {
       setLoading(false);
     } catch (error) {
       console.log(error);
+      setImages([]);
     }
   }, [setImages, setLoading]);
 
@@ -61,7 +66,8 @@ function Home() {
     async (query: string) => {
       try {
         const res = await fetch(
-          `https://imageapi-production.up.railway.app/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
+          //`https://imageapi-production.up.railway.app/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
+          `http://localhost:8000/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
           {
             method: "GET",
           }
@@ -70,6 +76,7 @@ function Home() {
         setLoading(false);
       } catch (error) {
         console.log(error);
+        setImages([]);
       }
     },
     [setImages, setLoading]
@@ -103,44 +110,54 @@ function Home() {
         <Navbar triggerParentUpdate={updateQueryState} />
         <Text />
         <Imageslider />
-        <div>
-          {!loading && images.length === 0 && (
-            <div>
-              <h1 className="text greeny text-center text-xl">
-                Unable to find any images based on current search query.
-              </h1>
-            </div>
-          )}
-          {loading ? (
-            <div>
-              <div className="text-white text-3xl text-center">
-                Use the search bar to find your favorite pepe!
-              </div>
-              <div className="mt-3 justify-center flex items-center">
-                <hr className="mt-3 sm:mx-auto w-[38rem]" />
-              </div>
-            </div>
-          ) : (
-            <div>
-              <div id="gallery" className="text-white text-3xl text-center">
-                Use the search bar to find your favorite pepe!
-              </div>
-              <div className="text-greeny text-center text-xl">
-                Found {images.length} pepes for the tag "{query}" sorted
-                randomly
-              </div>
-              <div className="mt-3 justify-center flex items-center">
-                <hr className="mt-3 sm:mx-auto w-[38rem]" />
-              </div>
 
+        <div id="gallery" className="text-white text-3xl text-center">
+          Use the search bar to find your favorite pepe!
+        </div>
+
+        {loading ? (
+          <div>
+            <div className="mt-3 justify-center flex items-center">
+              <hr className="mt-3 sm:mx-auto w-[38rem]" />
+            </div>
+          </div>
+        ) : (
+          <div>
+            {/*Empty query check*/}
+            {query === "" ? (
+              <div className="text-center text-xl invisible">
+                Invisible placeholder text
+              </div>
+            ) : (
+              <div>
+                {images.length === 1 ? (
+                  <div className="text-greeny text-center text-xl">
+                    Database contains {images.length} pepe with the tag "{query}
+                    "
+                  </div>
+                ) : (
+                  <div className="text-greeny text-center text-xl">
+                    Database contains {images.length} pepes with the tag "
+                    {query}"
+                  </div>
+                )}
+              </div>
+            )}
+
+            <div className="mt-3 justify-center flex items-center">
+              <hr className="mt-3 sm:mx-auto w-[38rem]" />
+            </div>
+
+            {images.length !== 0 && (
               <div className="columns-5 pt-10 px-24 pb-24">
                 {images.map((image) => (
                   <Gallery key={image.uuid} image={image} />
                 ))}
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
+
         <Footer />
       </div>
     </div>

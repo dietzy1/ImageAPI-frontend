@@ -14,8 +14,8 @@ export function Signuppage({ open, onClose }: any) {
     const ok = await Signupfunc(username, password);
     if (ok) {
       dispatch({ user: true });
-      console.log(state.user);
     }
+    console.log(state.user);
   };
 
   if (!open) return null;
