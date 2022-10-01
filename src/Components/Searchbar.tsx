@@ -29,14 +29,14 @@ const Searchbar = ({ triggerParentUpdate }: any) => {
           </svg>
           <input
             onChange={(e) => setQuery(e.target.value)}
-            className="appearance-none bg-transparent border-none w-full text-gray-500 mr-2 py-1 px-2 leading-tight focus:outline-none rounded-md"
+            className="appearance-none bg-transparent border-none w-full text-gray-500 lg:mr-2 mr-1 py-1 px-2 leading-tight focus:outline-none rounded-md text-xs"
             type="text"
             placeholder="Search Image Tag"
           />
           {/*query doesn't work with scrolling links wrapping*/}
           {/*     <Link to="gallery" spy={true} smooth={true} offset={-90}> */}
           <button
-            className="flex-shrink-0 focus:outline-none focus:ring-greeny font-medium  bg-greeny hover:bg-teal-700 mr-4 hover:border-teal-700  text-white py-1 px-2 rounded-lg text-md"
+            className="flex-shrink-0 focus:outline-none focus:ring-greeny font-medium  bg-greeny hover:bg-teal-700 lg:mr-4 mr-1 hover:border-teal-700  text-white py-1 px-1 lg:px-2 rounded-lg sm:text-sm text-xs"
             type="submit"
           >
             <Link to="gallery" spy={true} smooth={true} offset={-90}>

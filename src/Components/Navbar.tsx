@@ -24,10 +24,11 @@ const Navbar = ({ triggerParentUpdate }: any) => {
   return (
     <div>
       <nav className="text-white flex flex-row h-16 w-full fixed top-0 backdrop-blur-[46px] bg-darky/10 z-[999]">
+        {/*This is a 3rd of the screen*/}
         <div className="flex flex-row justify-center items-center w-[33.33%]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-[4rem] w-[4rem]"
+            className="lg:h-[4rem] lg:w-[4rem] md:h-[3rem] md:w-[3rem] sm:h-[2rem] sm:w-[2rem]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -39,26 +40,40 @@ const Navbar = ({ triggerParentUpdate }: any) => {
               d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <h1 className=" text-5xl font-bold text-greeny whitespace-nowrap">
+          <h1 className=" lg:text-5xl md:text-3xl sm:text-base font-bold text-greeny whitespace-nowrap">
             Pepe-Gallery
           </h1>
         </div>
 
-        <div className="flex flex-row justify-center items-center w-[33.33%] p-8">
+        {/*This is a 3rd of the screen*/}
+        <div className="flex flex-row justify-center items-center w-[33.33%] lg:p-8 md:p-4 sm:p-2">
           <Searchbar triggerParentUpdate={triggerParentUpdate} />
         </div>
 
-        <div className="flex flex-row justify-center items-center w-[33.33%]">
-          <span className="p-2 hover:text-greeny">
+        {/*This is a 3rd of the screen*/}
+        {/*Implement hamburgermenu here*/}
+        <div className="fixed top-0 left-0 w-[60%] h-full">
+          <ul className="pt-24 border-r">
+            <li>Home</li>
+            <li>Documentation</li>
+            <li>Standoff</li>
+            <li>Leaderboard</li>
+            <li>Login</li>
+            <li>Sign up</li>
+          </ul>
+        </div>
+
+        <div className="flex flex-row justify-center items-center w-[33.33%] overflow-hidden hidden">
+          <span className="lg:p-2 md:p-1 hover:text-greeny">
             <Link to="/"> Home </Link>
           </span>
-          <span className="p-2 hover:text-greeny">
+          <span className="lg:p-2 md:p-1 hover:text-greeny">
             <Link to="/documentation"> Documentation </Link>
           </span>
-          <span className="p-2 hover:text-greeny">
+          <span className="lg:p-2 md:p-1 hover:text-greeny">
             <Link to="/standoff"> Standoff</Link>
           </span>
-          <span className="p-2 hover:text-greeny">
+          <span className="lg:p-2 md:p-1 hover:text-greeny">
             <Link to="/leaderboard"> Leaderboard </Link>
           </span>
 

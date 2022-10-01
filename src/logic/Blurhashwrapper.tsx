@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { imageType } from "../Pages/Home";
-import { Blurhash, BlurhashCanvas } from "react-blurhash";
+import { BlurhashCanvas } from "react-blurhash";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Blurhashwrapper({ image }: { image: imageType }) {
@@ -16,43 +16,29 @@ function Blurhashwrapper({ image }: { image: imageType }) {
   };
 
   return (
-    <div>
-      <LazyLoadImage
-        key={image.uuid}
-        src={image.filepath}
-        height={image.height}
-        width={image.width}
-        onLoad={handleLoad}
-        beforeLoad={handleLoadStarted}
-      />
-      {!isLoaded && isLoadStarted && (
-        <Blurhash
-          hash={image.blurhash}
-          width={image.width}
+    <div className="relative w-full h-full">
+      <div className=" z-100 top-0 left-0">
+        <LazyLoadImage
+          id={image.uuid}
+          key={image.uuid}
+          src={image.filepath}
           height={image.height}
-          resolutionX={32}
-          resolutionY={32}
-          punch={1}
+          width={image.width}
+          onLoad={handleLoad}
+          beforeLoad={handleLoadStarted}
         />
+      </div>
+      {!isLoaded /* && isLoadStarted */ && (
+        <div className="absolute z-10 top-0 left-0">
+          <BlurhashCanvas
+            className="w-full h-full"
+            hash={image.blurhash}
+            width={image.width}
+            height={image.height}
+            punch={1}
+          />
+        </div>
       )}
-      {/* <LazyLoadImage
-        key={image.uuid}
-        src={image.filepath}
-        height={image.height}
-        width={image.width}
-        onLoad={handleLoad}
-        beforeLoad={handleLoadStarted}
-      />
-      {!isLoaded && isLoadStarted && (
-        <Blurhash
-          hash={image.blurhash}
-          width={image.width}
-          height={image.height}
-          resolutionX={32}
-          resolutionY={32}
-          punch={1}
-        />
-      )} */}
     </div>
   );
 }

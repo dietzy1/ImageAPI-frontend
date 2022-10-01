@@ -3,6 +3,7 @@ import Footer from "../Components/Footer";
 import { NavbarNoSearch } from "../Components/Navbar";
 import { imageType } from "../Pages/Home";
 import { useState, useEffect } from "react";
+import { Blurhash } from "react-blurhash";
 
 //I need to make a request to the backend for 2 images which are displayed on screen
 
@@ -101,6 +102,7 @@ function Pepebattle() {
           <div className="flex flex-row justify-center">
             <div>
               <h1 className="text-2xl">{images[0].title}</h1>
+
               <img
                 src={images[0].filepath}
                 alt=""

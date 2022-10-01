@@ -47,8 +47,8 @@ function Home() {
   const getImagesNoQuery = useCallback(async () => {
     try {
       const res = await fetch(
-        // `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
-        `http://localhost:8000/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
+        `https://imageapi-production.up.railway.app/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
+        //`http://localhost:8000/api/v0/images/random/?quantity=40&key=${process.env.REACT_APP_API_KEY}`,
         {
           method: "GET",
         }
@@ -66,8 +66,8 @@ function Home() {
     async (query: string) => {
       try {
         const res = await fetch(
-          //`https://imageapi-production.up.railway.app/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
-          `http://localhost:8000/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
+          `https://imageapi-production.up.railway.app/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
+          //`http://localhost:8000/api/v0/images/tags/${query}?quantity=25&key=${process.env.REACT_APP_API_KEY}`,
           {
             method: "GET",
           }
@@ -149,7 +149,7 @@ function Home() {
             </div>
 
             {images.length !== 0 && (
-              <div className="columns-5 pt-10 px-24 pb-24">
+              <div className="lg:columns-5 lg:pt-10 pt-2 lg:px-24 px-4 pb-24 columns-3 overflow-none overflow-hidden">
                 {images.map((image) => (
                   <Gallery key={image.uuid} image={image} />
                 ))}
@@ -157,7 +157,6 @@ function Home() {
             )}
           </div>
         )}
-
         <Footer />
       </div>
     </div>
@@ -165,3 +164,11 @@ function Home() {
 }
 
 export default Home;
+
+/* display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+row-gap: 2em;
+column-gap: 10px;
+max-width: 1024px;
+content-visibility: visible; */
