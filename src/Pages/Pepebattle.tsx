@@ -34,7 +34,8 @@ function Pepebattle() {
     console.log("requesting match");
     try {
       const res = await fetch(
-        `http://localhost:8000/api/v0/elo/requestmatch/`,
+        //`http://localhost:8000/api/v0/elo/requestmatch/`,
+        `https://imageapi-production.up.railway.app/api/v0/elo/requestmatch/?key=${process.env.REACT_APP_API_KEY}`,
         {
           method: "GET",
         }
@@ -109,6 +110,11 @@ function Pepebattle() {
                 className="w-96 mb-12 rounded-lg mx-20"
               />
             </div>
+
+            <div className="p-4 m-3 absolute my-auto rounded-full bg-white border-blacky text-blacky font-bold">
+              VS
+            </div>
+
             <div>
               <h1 className="text-2xl">{images[1].title}</h1>
               <img

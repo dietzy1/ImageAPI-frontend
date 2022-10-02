@@ -14,6 +14,7 @@ export function Signuppage({ open, onClose }: any) {
     const ok = await Signupfunc(username, password);
     if (ok) {
       dispatch({ user: true });
+      onClose();
     }
     console.log(state.user);
   };
@@ -21,7 +22,7 @@ export function Signuppage({ open, onClose }: any) {
   if (!open) return null;
   return createPortal(
     <div
-      className="top-0 bottom-0 right-0 left-0 fixed z-[1] backdrop-blur-lg shadow-3xl p-60"
+      className="top-0 bottom-0 right-0 left-0 fixed z-[2000] backdrop-blur-lg shadow-3xl pt-52"
       onClick={onClose}
     >
       <div

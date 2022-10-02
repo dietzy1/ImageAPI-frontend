@@ -6,12 +6,18 @@ import { useState } from "react";
 import { Loginpage } from "../Pages/Loginpage";
 import { Signuppage } from "../Pages/Signuppage";
 import { Accountpage } from "../Pages/Accountpage";
+import Hamburger from "hamburger-react";
 
 const Navbar = ({ triggerParentUpdate }: any) => {
   const [state, dispatch] = useGlobalState();
   const [isOpen, setIsOpen] = useState(false); //Login
   const [isOpen1, setIsOpen1] = useState(false); //Signup
   const [isOpen2, setIsOpen2] = useState(false); //Account
+  const [hamburger, setHamburger] = useState(false); //Hamburger
+
+  const hamburgerMenu = () => {
+    setHamburger(!hamburger);
+  };
 
   const onsubmitfunc = async (e: any) => {
     e.preventDefault();
@@ -28,7 +34,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
         <div className="flex flex-row justify-center items-center w-[33.33%]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="lg:h-[4rem] lg:w-[4rem] md:h-[3rem] md:w-[3rem] sm:h-[2rem] sm:w-[2rem]"
+            className="lg:h-[4rem] lg:w-[4rem] md:h-[3rem] md:w-[3rem] sm:h-[2rem] sm:w-[2rem] w-[2rem] h-[2rem]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -40,7 +46,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
               d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <h1 className=" lg:text-5xl md:text-3xl sm:text-base font-bold text-greeny whitespace-nowrap">
+          <h1 className=" lg:text-5xl md:text-3xl sm:text-base text-xs font-bold text-greeny whitespace-nowrap">
             Pepe-Gallery
           </h1>
         </div>
@@ -51,19 +57,77 @@ const Navbar = ({ triggerParentUpdate }: any) => {
         </div>
 
         {/*This is a 3rd of the screen*/}
-        {/*Implement hamburgermenu here*/}
-        <div className="fixed top-0 left-0 w-[60%] h-full">
-          <ul className="pt-24 border-r">
-            <li>Home</li>
-            <li>Documentation</li>
-            <li>Standoff</li>
-            <li>Leaderboard</li>
-            <li>Login</li>
-            <li>Sign up</li>
-          </ul>
-        </div>
+        <button className="z-[9999] absolute top-2 right-8 lg:hidden">
+          <Hamburger onToggle={hamburgerMenu} />
+        </button>
+        {hamburger ? (
+          <div className="fixed top-0 right-0 w-[70%] h-screen backdrop-blur-[46px] border-l bg-hybrid/[1]  z-[1000] ease-in-out duration-300' : 'ease-in-out duration-300 ">
+            {/* <button className="z-[9999] absolute top-8 right-8">
+              <Hamburger onToggle={hamburgerMenu} />
+            </button> */}
 
-        <div className="flex flex-row justify-center items-center w-[33.33%] overflow-hidden hidden">
+            <ul className="pt-24  ">
+              <li className="p-6  hover:text-greeny">
+                <Link to="/"> Home </Link>
+              </li>
+              <li className="p-6  hover:text-greeny">
+                <Link to="/documentation"> Documentation </Link>
+              </li>
+              <li className="p-6  hover:text-greeny">
+                <Link to="/standoff"> Standoff</Link>
+              </li>
+              <li className="p-6  hover:text-greeny">
+                <Link to="/leaderboard"> Leaderboard </Link>
+              </li>
+
+              {state.user ? (
+                <button
+                  className="p-6 hover:text-greeny whitespace-nowrap w-20"
+                  onClick={onsubmitfunc}
+                >
+                  Logout
+                </button>
+              ) : (
+                <ul>
+                  <button
+                    className=" p-6 hover:text-greeny whitespace-nowrap w-20"
+                    onClick={() =>
+                      openLoginpage(setIsOpen, setIsOpen1, setIsOpen2)
+                    }
+                  >
+                    Login
+                  </button>
+                </ul>
+              )}
+              {state.user ? (
+                <ul>
+                  <button
+                    onClick={() =>
+                      openAccountpage(setIsOpen, setIsOpen1, setIsOpen2)
+                    }
+                    className="p-6 px-2 bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap w-20"
+                  >
+                    Account
+                  </button>
+                </ul>
+              ) : (
+                <ul>
+                  <button
+                    onClick={() =>
+                      openSignuppage(setIsOpen, setIsOpen1, setIsOpen2)
+                    }
+                    className="py-3 mx-6 px-2 bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap w-20"
+                  >
+                    Sign up
+                  </button>
+                </ul>
+              )}
+            </ul>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <div className=" flex-row justify-center items-center w-[33.33%] overflow-hidden hidden lg:flex xl:flex ">
           <span className="lg:p-2 md:p-1 hover:text-greeny">
             <Link to="/"> Home </Link>
           </span>

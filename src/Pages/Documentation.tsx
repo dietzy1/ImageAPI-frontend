@@ -1,6 +1,6 @@
 import Codeblocks from "../Components/Codeblocks";
 import Footer from "../Components/Footer";
-import { NavbarNoSearch } from "../Components/Navbar";
+import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import Table, { UpperTable } from "../Components/Table";
 
@@ -8,15 +8,16 @@ function Documentation() {
   //mt is 44max-w-[650px]
 
   return (
-    <div>
-      <NavbarNoSearch />
+    <div className="flex flex-row">
+      <Navbar />
+
       <Sidebar />
 
       <div className="flex flex-col justify-center pt-28 ">
         {/*1050px relative border-l border-gray-700*/}
 
-        <div className="max-w-[900px] w-full mx-auto px-8 pb-8 mt-8 text-[#fff] text-base font-normal border-x border-b">
-          <h2 id="API-Documentation" className="text-6xl font-bold  mb-8 ml-4">
+        <div className="lg:w-[900px]  mx-auto px-8 pb-8 mt-8 text-[#fff] text-base font-normal border-x border-b">
+          <h2 id="API-Documentation" className="text-6xl fontbold  mb-8 ml-4">
             API-Documentation
           </h2>
           <h2

@@ -6,6 +6,7 @@ import Text from "../Components/Text";
 import Footer from "../Components/Footer";
 import { refreshSessionfunc } from "../logic/fetch";
 import { useGlobalState } from "../logic/context";
+import CookieConsent from "react-cookie-consent";
 
 import "../index.css";
 
@@ -157,11 +158,31 @@ function Home() {
             )}
           </div>
         )}
+        <CookieConsent
+          style={{ background: "#1C1D20" }}
+          buttonStyle={{
+            margin: "1.6rem",
+            borderRadius: "7px",
+            background: "#00df9a",
+            color: "white",
+            fontSize: "13px",
+            fontWeight: "bold",
+          }}
+          buttonText="I understand"
+        >
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
         <Footer />
       </div>
     </div>
   );
 }
+
+/* blacky: "#000300",
+greeny: "#00df9a",
+darky: "#131315",
+bluey: "#151922",
+hybrid: "#1C1D20", */
 
 export default Home;
 

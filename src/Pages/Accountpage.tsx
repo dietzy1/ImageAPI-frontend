@@ -14,7 +14,7 @@ export function Accountpage({ open, onClose }: any) {
   if (!open) return null;
   return createPortal(
     <div
-      className="top-0 bottom-0 right-0 left-0 fixed z-[1] backdrop-blur-lg shadow-3xl p-40"
+      className="top-0 bottom-0 right-0 left-0 fixed z-[2000] backdrop-blur-lg shadow-3xl p-40"
       onClick={onClose}
     >
       <div
