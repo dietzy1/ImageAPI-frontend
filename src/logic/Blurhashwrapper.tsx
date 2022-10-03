@@ -28,7 +28,7 @@ function Blurhashwrapper({ image }: { image: imageType }) {
           beforeLoad={handleLoadStarted}
         />
       </div>
-      {!isLoaded /* && isLoadStarted */ && (
+      {!isLoaded && isLoadStarted && (
         <div className="absolute z-10 top-0 left-0">
           <BlurhashCanvas
             className="w-full h-full"

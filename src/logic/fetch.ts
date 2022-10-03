@@ -4,7 +4,7 @@ export async function Loginfunc(username: string, password: string) {
   formData.set("password", password);
 
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/auth/signin/",
+    "https://imageapi-production.up.railway.app/api/v0/auth/signin/",
     {
       method: "POST",
       body: formData,
@@ -24,7 +24,7 @@ export async function Signupfunc(username: string, password: string) {
   formData.set("password", password);
 
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/auth/signup/",
+    "https://imageapi-production.up.railway.app/api/v0/auth/signup/",
     {
       method: "POST",
       body: formData,
@@ -39,7 +39,7 @@ export async function Signupfunc(username: string, password: string) {
 
 export async function refreshSessionfunc() {
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/auth/refresh/",
+    "https://imageapi-production.up.railway.app/api/v0/auth/refresh/",
     {
       method: "POST",
       credentials: "include",
@@ -53,7 +53,7 @@ export async function refreshSessionfunc() {
 
 export async function Logoutfunc() {
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/auth/signout/",
+    "https://imageapi-production.up.railway.app/api/v0/auth/signout/",
     {
       method: "POST",
       credentials: "include",

@@ -134,7 +134,7 @@ export function Accountpage({ open, onClose }: any) {
 //Function that fetches a new api key
 async function FetchAPIKey({ setAPIKey }: any) {
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/auth/showkey/",
+    "https://imageapi-production.up.railway.app/api/v0/auth/showkey/",
     {
       method: "GET",
       credentials: "include",
@@ -145,7 +145,7 @@ async function FetchAPIKey({ setAPIKey }: any) {
 
 async function GenerateAPIKey({ setAPIKey }: any) {
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/auth/generatekey/",
+    "https://imageapi-production.up.railway.app/api/v0/auth/generatekey/",
     {
       method: "POST",
       credentials: "include",
@@ -156,7 +156,7 @@ async function GenerateAPIKey({ setAPIKey }: any) {
 
 async function DeleteAccount() {
   const res = await fetch(
-    "https://imageapi-production.up.railway.app/auth/deleteaccount/",
+    "https://imageapi-production.up.railway.app/api/v0/auth/deleteaccount/",
     {
       method: "POST",
       credentials: "include",
