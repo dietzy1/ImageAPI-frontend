@@ -8,7 +8,7 @@ function Sidebar() {
   return (
     <div>
       {/*border-r-[1px]*/}
-      <div className="fixed top-36 left-10 h-screen  m-0 flex flex-col whitespace-nowrap  text-[#fff] text-sm ">
+      <div className=" w-[25%] fixed left-28 top-0 pt-36 h-full flex flex-col whitespace-nowrap  text-[#fff] text-sm ">
         <Link to="API-Documentation" spy={true} smooth={true} offset={-100}>
           <h1 className="mb-2 ml-3 text-2xl font-bold hover:text-greeny">
             API-documentation

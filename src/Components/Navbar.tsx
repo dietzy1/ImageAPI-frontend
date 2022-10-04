@@ -7,6 +7,7 @@ import { Loginpage } from "../Pages/Loginpage";
 import { Signuppage } from "../Pages/Signuppage";
 import { Accountpage } from "../Pages/Accountpage";
 import Hamburger from "hamburger-react";
+import Footer from "./Footer";
 
 const Navbar = ({ triggerParentUpdate }: any) => {
   const [state, dispatch] = useGlobalState();
@@ -61,36 +62,37 @@ const Navbar = ({ triggerParentUpdate }: any) => {
           <Hamburger onToggle={hamburgerMenu} />
         </button>
         {hamburger ? (
-          <div className="fixed top-0 right-0 w-[70%] h-screen backdrop-blur-[46px] border-l bg-hybrid/[1]  z-[1000] ease-in-out duration-300' : 'ease-in-out duration-300 ">
-            {/* <button className="z-[9999] absolute top-8 right-8">
-              <Hamburger onToggle={hamburgerMenu} />
-            </button> */}
-
-            <ul className="pt-24  ">
-              <li className="p-6  hover:text-greeny">
-                <Link to="/"> Home </Link>
-              </li>
-              <li className="p-6  hover:text-greeny">
-                <Link to="/documentation"> Documentation </Link>
-              </li>
-              <li className="p-6  hover:text-greeny">
-                <Link to="/standoff"> Standoff</Link>
-              </li>
-              <li className="p-6  hover:text-greeny">
-                <Link to="/leaderboard"> Leaderboard </Link>
-              </li>
-
+          <div className="fixed top-0 right-0 w-[100%] h-screen  bg-hybrid/[1]  z-[1000] ease-in-out duration-300' : 'ease-in-out duration-300 ">
+            <ul className="pt-16 font-bold ">
+              <ul className="bg-darky border-t border-gray-500 pb-16 border-b">
+                <li className="p-6  hover:text-greeny">
+                  <Link to="/"> Home </Link>
+                </li>
+                <hr className="mx-6 border-gray-500" />
+                <li className="p-6  hover:text-greeny">
+                  <Link to="/documentation"> Documentation </Link>
+                </li>
+                <hr className="mx-6 border-gray-500" />
+                <li className="p-6  hover:text-greeny">
+                  <Link to="/standoff"> Standoff</Link>
+                </li>
+                <hr className="mx-6 border-gray-500" />
+                <li className="p-6  hover:text-greeny">
+                  <Link to="/leaderboard"> Leaderboard </Link>
+                </li>
+                <hr className="mx-6 border-gray-500 " />
+              </ul>
               {state.user ? (
                 <button
-                  className="p-6 hover:text-greeny whitespace-nowrap w-20"
+                  className="py-3 m-10 w-[33.33%] hover:text-greeny whitespace-nowrap bg-white rounded-xl border border-gray-500 text-darky"
                   onClick={onsubmitfunc}
                 >
                   Logout
                 </button>
               ) : (
-                <ul>
+                <ul className="flex justify-center">
                   <button
-                    className=" p-6 hover:text-greeny whitespace-nowrap w-20"
+                    className=" py-3 m-10 w-[33.33%] mx-auto hover:text-greeny whitespace-nowrap bg-white rounded-xl border border-gray-500 text-darky "
                     onClick={() =>
                       openLoginpage(setIsOpen, setIsOpen1, setIsOpen2)
                     }
@@ -100,29 +102,33 @@ const Navbar = ({ triggerParentUpdate }: any) => {
                 </ul>
               )}
               {state.user ? (
-                <ul>
+                <ul className="flex justify-center">
                   <button
                     onClick={() =>
                       openAccountpage(setIsOpen, setIsOpen1, setIsOpen2)
                     }
-                    className="p-6 px-2 bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap w-20"
+                    className="py-3 w-[80%] bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap text-darky"
                   >
                     Account
                   </button>
                 </ul>
               ) : (
-                <ul>
+                <ul className="flex justify-center">
                   <button
                     onClick={() =>
                       openSignuppage(setIsOpen, setIsOpen1, setIsOpen2)
                     }
-                    className="py-3 mx-6 px-2 bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap w-20"
+                    className="py-3 w-[80%]  bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap text-darky"
                   >
                     Sign up
                   </button>
                 </ul>
               )}
             </ul>
+
+            <div>
+              <hr className="mx-6 mt-56 border-gray-500" />
+            </div>
           </div>
         ) : (
           <div></div>
@@ -167,7 +173,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
                   onClick={() =>
                     openAccountpage(setIsOpen, setIsOpen1, setIsOpen2)
                   }
-                  className="py-6 px-2 bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap w-20"
+                  className="py-2 px-2 bg-greeny rounded-xl hover:text-greeny hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30 whitespace-nowrap w-20"
                 >
                   Account
                 </button>

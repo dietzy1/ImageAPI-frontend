@@ -22,6 +22,7 @@ function Codeblocks({
   return (
     <div className="font-light font-mono">
       <CopyBlock
+        customStyle={{ margin: "10px" }}
         text={code}
         language={language}
         showLineNumbers={showLineNumbers}

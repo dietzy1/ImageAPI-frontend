@@ -2,7 +2,7 @@ import React from "react";
 
 function Table({ endpoint }: { endpoint: string }) {
   return (
-    <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <div className="overflow-x-auto relative shadow-md sm:rounded-lg max-w-[350px]">
       <table className="w-full text-base text-left text-gray-400">
         <tbody>
           <tr className=" border-b bg-hybrid dark:border-gray-700 h-20">
@@ -28,7 +28,7 @@ export function UpperTable({
   header2: string;
 }) {
   return (
-    <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <div className="overflow-x-auto relative shadow-md sm:rounded-lg max-w-[400px]">
       <table className="w-full text-left text-gray-400">
         <thead className="text-xs uppercase bg-hybrid  text-gray-400 border-b border-gray-700">
           <tr>

@@ -4,7 +4,8 @@ import { imageType } from "../Pages/Home";
 function Gallery({ image }: { image: imageType }) {
   return (
     <div className="mb-12 rounded-lg">
-      <Blurhashwrapper key={image.uuid} image={image} />
+      {/*     <Blurhashwrapper key={image.uuid} image={image} /> */}
+      <img key={image.uuid} src={image.filepath} />
 
       {/* <div className="absolute inset-0 bg-cover bg-center z-0">
         <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-3xl text-red-800 font-semibold hover:backdrop-blur-sm filter backdrop-grayscale">

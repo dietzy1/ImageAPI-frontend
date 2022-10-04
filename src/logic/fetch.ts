@@ -62,5 +62,5 @@ export async function Logoutfunc() {
   if (!res.ok) {
     return Promise.resolve(false);
   }
-  return Promise.resolve(true);
+  return Promise.resolve(false);
 }
