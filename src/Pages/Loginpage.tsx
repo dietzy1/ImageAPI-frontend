@@ -9,6 +9,8 @@ import { createPortal } from "react-dom";
 
 //And the onsubmit must be of const onsubmitfunc = async (e: any) => {
 
+//Not registered? create account(link)
+
 export function Loginpage({ open, onClose }: any) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -77,6 +79,12 @@ export function Loginpage({ open, onClose }: any) {
           >
             Login
           </button>
+          <div className="flex flex-row text-gray-400">
+            <p className="mr-1">Not registered? </p>
+            <button className="underline hover:text-greeny">
+              create account
+            </button>
+          </div>
         </form>
       </div>
     </div>,

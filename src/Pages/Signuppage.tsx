@@ -67,6 +67,10 @@ export function Signuppage({ open, onClose }: any) {
           >
             Sign up
           </button>
+          <div className="flex flex-row text-gray-400">
+            <p className="mr-1">Already registered? </p>
+            <button className="underline hover:text-greeny">login</button>
+          </div>
         </form>
       </div>
     </div>,

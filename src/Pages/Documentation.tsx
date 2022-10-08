@@ -1,6 +1,6 @@
 import Codeblocks from "../Components/Codeblocks";
 import Footer from "../Components/Footer";
-import Navbar from "../Components/Navbar";
+import { NavbarNoSearch } from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import Table, { UpperTable } from "../Components/Table";
 
@@ -10,13 +10,14 @@ function Documentation() {
   return (
     <div>
       <div className="h-screen">
-        <Navbar />
-        <aside>
-          <Sidebar />
-        </aside>
-        <div className="flex flex-row justify-center">
-          <div className="lg:pt-28 pt-10 justify-center items-center lg:w-[50%]  ">
-            <div className=" lg:px-8 pb-8 mt-8 text-[#fff] text-base font-normal lg:border-x lg:border-b">
+        <NavbarNoSearch />
+
+        <div className="flex flex-row justify-evenly">
+          <aside className="w-[25%] hidden lg:flex md:hidden px-4">
+            <Sidebar />
+          </aside>
+          <div className="lg:pt-24 pt-10 justify-center items-center lg:w-[50%]  ">
+            <div className=" lg:px-8 pb-8 mt-8 text-[#fff] text-base font-normal lg:border-x border-gray-500 lg:border-b antialiased">
               <h2
                 id="API-Documentation"
                 className="text-6xl fontbold  mb-8 ml-4 mr-4 "
@@ -29,7 +30,9 @@ function Documentation() {
               >
                 Getting started
               </h2>
+
               <div className=" pl-4 mb-10 mt-2">
+                <hr className="border-gray-500 mb-5" />
                 <div className="flex flex-col py-2">
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500">
                     <div id="API access" />
@@ -84,7 +87,7 @@ function Documentation() {
                   >
                     Data model
                   </h2>
-
+                  <hr className="border-gray-500 mb-5" />
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500">
                     <div id="Format" />
                     Format
@@ -110,13 +113,15 @@ function Documentation() {
                     typescript custom type that implements the json object.
                   </span>
 
-                  <Codeblocks
-                    code={type}
-                    startingLineNumber={1}
-                    codeBlock={true}
-                    language={"ts"}
-                    showLineNumbers={false}
-                  />
+                  <div className="w-[95%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <Codeblocks
+                      code={type}
+                      startingLineNumber={1}
+                      codeBlock={true}
+                      language={"ts"}
+                      showLineNumbers={false}
+                    />
+                  </div>
 
                   <h2
                     id="Endpoints"
@@ -124,17 +129,18 @@ function Documentation() {
                   >
                     Endpoints
                   </h2>
-
+                  <hr className="border-gray-500 mb-5" />
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500 pb-4">
                     <div id="Supported GET endpoints" />
                     Supported GET endpoints
                   </span>
-
-                  <UpperTable header1={"METHOD"} header2={"URL"} />
-                  <Table endpoint={endpoint1} />
-                  <Table endpoint={endpoint2} />
-                  <Table endpoint={endpoint3} />
-                  <Table endpoint={endpoint4} />
+                  <div className="w-[90%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <UpperTable header1={"METHOD"} header2={"URL"} />
+                    <Table endpoint={endpoint1} />
+                    <Table endpoint={endpoint2} />
+                    <Table endpoint={endpoint3} />
+                    <Table endpoint={endpoint4} />
+                  </div>
 
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500 pt-4">
                     <div id="Required query parameters" />
@@ -216,8 +222,9 @@ function Documentation() {
                     id="How to use the API key"
                     className="text-4xl font-bold text-white underline pb-4"
                   >
-                    How to use the API key
+                    Api key usage
                   </h2>
+                  <hr className="border-gray-500 mb-5" />
 
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500">
                     <div id="How to" />
@@ -248,34 +255,37 @@ function Documentation() {
                     The following shows an example of how to do this in
                     typescript.
                   </span>
-
-                  {/* <Codeblocks
-                code={env1}
-                startingLineNumber={1}
-                codeBlock={true}
-                showLineNumbers={false}
-                language={"ts"}
-              /> */}
+                  <div className="w-[95%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <Codeblocks
+                      code={env1}
+                      startingLineNumber={1}
+                      codeBlock={true}
+                      showLineNumbers={false}
+                      language={"ts"}
+                    />
+                  </div>
 
                   <span className="mb-6">
                     And then you can use ${`{process.env.REACT_APP_API_KEY}`} to
                     access the key.
                   </span>
-                  {/* 
-              <Codeblocks
-                code={env}
-                startingLineNumber={1}
-                codeBlock={true}
-                showLineNumbers={false}
-                language={"ts"}
-              /> */}
+                  <div className="w-[95%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <Codeblocks
+                      code={env}
+                      startingLineNumber={1}
+                      codeBlock={true}
+                      showLineNumbers={false}
+                      language={"ts"}
+                    />
+                  </div>
 
                   <h2
                     id="Full example of endpoint implementation"
                     className="text-4xl font-bold text-white underline mb-5 mt-5"
                   >
-                    Full example of endpoint implementation
+                    Full examples
                   </h2>
+                  <hr className="border-gray-500 mb-5" />
 
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500 py-2">
                     <div id="1/api/v0/image/random/" />
@@ -288,13 +298,15 @@ function Documentation() {
                   </span>
                   <span className="mb-6"></span>
 
-                  {/*    <Codeblocks
-                code={code1}
-                startingLineNumber={1}
-                codeBlock={true}
-                showLineNumbers={true}
-                language={"go"}
-              /> */}
+                  <div className="w-[95%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <Codeblocks
+                      code={code1}
+                      startingLineNumber={1}
+                      codeBlock={true}
+                      showLineNumbers={true}
+                      language={"go"}
+                    />
+                  </div>
 
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500">
                     <div id="1/api/v0/image/:uuid" />
@@ -306,14 +318,15 @@ function Documentation() {
                     will be returned. If multiple images are requested an array
                     of json objects will be returned.
                   </span>
-
-                  {/*  <Codeblocks
-                code={code2}
-                startingLineNumber={1}
-                codeBlock={true}
-                showLineNumbers={true}
-                language={"ts"}
-              /> */}
+                  <div className="w-[95%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <Codeblocks
+                      code={code2}
+                      startingLineNumber={1}
+                      codeBlock={true}
+                      showLineNumbers={true}
+                      language={"ts"}
+                    />
+                  </div>
 
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500 mt-4">
                     <div id="1/api/v0/images/:tags" />
@@ -326,13 +339,15 @@ function Documentation() {
                     of json objects will be returned.
                   </span>
 
-                  {/*  <Codeblocks
-                code={code3}
-                startingLineNumber={1}
-                codeBlock={true}
-                showLineNumbers={true}
-                language={"ts"}
-              /> */}
+                  <div className="w-[95%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <Codeblocks
+                      code={code3}
+                      startingLineNumber={1}
+                      codeBlock={true}
+                      showLineNumbers={true}
+                      language={"ts"}
+                    />
+                  </div>
 
                   <span className="mb-1 text-sm font-normal leading-none text-gray-500 mt-4">
                     <div id="1/api/v0/images/random/" />
@@ -344,18 +359,22 @@ function Documentation() {
                     will be returned. If multiple images are requested an array
                     of json objects will be returned.
                   </span>
-
-                  {/*  <Codeblocks
-                code={code4}
-                startingLineNumber={1}
-                codeBlock={true}
-                showLineNumbers={true}
-                language={"ts"}
-              /> */}
+                  <div className="w-[95%] max-w-sm md:max-w-xl lg:max-w-4xl self-center mr-4">
+                    <Codeblocks
+                      code={code4}
+                      startingLineNumber={1}
+                      codeBlock={true}
+                      showLineNumbers={true}
+                      language={"ts"}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <aside className="w-[25%] hidden lg:flex md:hidden sm:hidden">
+            {/*  <Sidebar /> */}
+          </aside>
           <Footer />
         </div>
       </div>

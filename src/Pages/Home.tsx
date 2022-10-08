@@ -20,6 +20,7 @@ export interface imageType {
   width: number;
   height: number;
   blurhash: string;
+  elo: number;
 }
 
 //I think it might be creating 2 requests one prior to the query being initialized

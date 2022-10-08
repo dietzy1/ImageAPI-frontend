@@ -1,22 +1,38 @@
-import Blurhashwrapper from "../logic/Blurhashwrapper";
 import { imageType } from "../Pages/Home";
 
-function Gallery({ image }: { image: imageType }) {
+function Gallery1({ image }: { image: imageType }) {
   return (
-    <div className="mb-12 rounded-lg">
-      {/*     <Blurhashwrapper key={image.uuid} image={image} /> */}
-      <img key={image.uuid} src={image.filepath} />
+    <div className="mb-12 rounded-lg text-white text-center antialiased">
+      <img key={image.uuid} src={image.filepath} alt="" />
 
-      {/* <div className="absolute inset-0 bg-cover bg-center z-0">
-        <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-3xl text-red-800 font-semibold hover:backdrop-blur-sm filter backdrop-grayscale">
-          <ul className="flex flex-col justify-center text-xs">
-            <div className="">Title: {image.title}</div>
-            <div>Tags: {image.tags.join(", ")}</div>
-          </ul>
-        </div>
-      </div> */}
+      <h1 className="font-bold">{image.title}</h1>
+      <span>{image.tags}</span>
     </div>
   );
 }
 
 export default Gallery;
+
+function Gallery({ image }: { image: imageType }) {
+  const tags = image.tags.join(" ");
+  return (
+    <div className="w-full flex justify-center flex-wrap mb-12">
+      <div className="relative flex-1 ">
+        <img
+          key={image.uuid}
+          src={image.filepath}
+          alt=""
+          className="opacity-80 relative align-top hover:opacity-100  duration-[0.6] transition-opacity "
+        />
+        <div className="z-1 absolute top-0 right-0 w-full h-full text-white hover:translate-y-[-30px] transition-transform opacity-0 hover:opacity-100   ">
+          <h1 className="font-bold text-center uppercase mt-10 lg:mt-20 opacity-100 xl:text-2xl lg:text-2xl text-base">
+            {image.title}
+          </h1>
+          <h1 className="font-bold text-center mx-10 mt-4 lg:flex xl:flex hidden">
+            {tags}
+          </h1>
+        </div>
+      </div>
+    </div>
+  );
+}

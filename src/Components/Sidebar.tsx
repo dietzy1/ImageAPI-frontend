@@ -7,8 +7,7 @@ import { Link } from "react-scroll";
 function Sidebar() {
   return (
     <div>
-      {/*border-r-[1px]*/}
-      <div className=" w-[25%] fixed left-28 top-0 pt-36 h-full flex flex-col whitespace-nowrap  text-[#fff] text-sm ">
+      <div className="fixed pt-32 h-full flex flex-col whitespace-nowrap  text-[#fff] text-sm antialiased  ">
         <Link to="API-Documentation" spy={true} smooth={true} offset={-100}>
           <h1 className="mb-2 ml-3 text-2xl font-bold hover:text-greeny">
             API-documentation
@@ -23,22 +22,22 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="API access" spy={true} smooth={true} offset={-75}>
                 {"> "}API access
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="Registration" spy={true} smooth={true} offset={-75}>
                 {"> "}Registration
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="Generate API key" spy={true} smooth={true} offset={-75}>
                 {"> "}Generate API key
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="Terms of use" spy={true} smooth={true} offset={-75}>
                 {"> "}Terms of use
               </Link>
@@ -52,13 +51,13 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="Format" spy={true} smooth={true} offset={-75}>
                 {"> "}Format
               </Link>
             </li>
 
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="Json fields" spy={true} smooth={true} offset={-75}>
                 {"> "}Json fields
               </Link>
@@ -72,7 +71,7 @@ function Sidebar() {
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="Supported GET endpoints"
                 spy={true}
@@ -82,7 +81,7 @@ function Sidebar() {
                 {"> "}Supported GET endpoints
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="Required query parameters"
                 spy={true}
@@ -92,7 +91,7 @@ function Sidebar() {
                 {"> "}Required query parameters
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="Optional query parameters"
                 spy={true}
@@ -102,7 +101,7 @@ function Sidebar() {
                 {"> "}Optional query parameters
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="/api/v0/image/random/"
                 spy={true}
@@ -112,7 +111,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/random/
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="/api/v0/image/:uuid"
                 spy={true}
@@ -122,7 +121,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/:uuid
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="/api/v0/images/:tags"
                 spy={true}
@@ -132,7 +131,7 @@ function Sidebar() {
                 {"> "}/api/v0/images/:tags
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="/api/v0/images/random/"
                 spy={true}
@@ -143,6 +142,7 @@ function Sidebar() {
               </Link>
             </li>
           </div>
+
           <Link
             to="How to use the API key"
             spy={true}
@@ -150,17 +150,17 @@ function Sidebar() {
             offset={-75}
           >
             <h1 className="text-xl mt-3 ml-3 font-bold hover:text-greeny">
-              How to use the API key
+              Api key usage
             </h1>
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="How to" spy={true} smooth={true} offset={-75}>
                 {"> "}How to
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link to="env file" spy={true} smooth={true} offset={-75}>
                 {"> "}env file
               </Link>
@@ -174,15 +174,12 @@ function Sidebar() {
             offset={-75}
           >
             <h1 className="text-xl ml-3 mt-3 font-bold hover:text-greeny ">
-              Full example of
-            </h1>
-            <h1 className="text-xl  ml-3 font-bold mr-3 hover:text-greeny">
-              endpoint implementation
+              Full example
             </h1>
           </Link>
 
           <div className="mb-1 ml-3">
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="1/api/v0/image/random/"
                 spy={true}
@@ -192,7 +189,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/random/
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="1/api/v0/image/:uuid"
                 spy={true}
@@ -202,7 +199,7 @@ function Sidebar() {
                 {"> "}/api/v0/image/:uuid
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="1/api/v0/images/:tags"
                 spy={true}
@@ -212,7 +209,7 @@ function Sidebar() {
                 {"> "}/api/v0/images/:tags
               </Link>
             </li>
-            <li className="hover:text-greeny mb-1">
+            <li className="hover:text-greeny mb-2">
               <Link
                 to="1/api/v0/images/random/"
                 spy={true}
