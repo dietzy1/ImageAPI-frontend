@@ -71,34 +71,37 @@ export default Leaderboard;
 
 function PepeCard({ image, counter }: { image: imageType; counter: number }) {
   return (
-    <div className="overflow-x-auto shadow-md sm:rounded-lg lg:w-[50%] w-[80%] mx-auto mb-4">
+    <div className="overflow-x-auto shadow-md sm:rounded-lg lg:w-[50%] w-[85%] mx-auto mb-4">
       <table className="w-full text-base text-left text-gray-400">
         <tbody>
           <tr className=" bg-hybrid  h-20">
-            <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white flex flex-row ">
+            <th className="py-4 lg:px-6 px-1 font-medium text-gray-900 whitespace-nowrap dark:text-white flex flex-row ">
               <img
-                className="lg:w-48 lg:h-48 w-32 h-32 rounded-full lg:mr-4"
+                className="lg:w-48 lg:h-48 w-24 h-24 rounded-full lg:mr-4"
                 key={image.uuid}
                 src={image.filepath}
                 alt=""
               />
               <div className="flex flex-col">
-                <span className="lg:text-3xl text-base font-bold">
+                <span className="lg:text-4xl text-base font-bold ">
                   {image.title}
                 </span>
-                <span className="lg:text-3xl text-base lg:mr-2">
-                  {"Rank " + counter}
-                </span>
-                <div className="grid grid-cols-2">
+
+                <div className="flex flex-row flex-wrap my-auto">
                   {image.tags.map((tag) => (
-                    <span className=" text-sm font-bold border border-greeny rounded-xl w-28 p-2 text-center m-2">
+                    <span className=" lg:text-sm text-xs font-bold border border-greeny rounded-xl lg:w-28 lg:p-2 p-1 mx-1 text-center lg:my-2 my-1">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <span className="ml-auto my-auto">{"Pepe elo " + image.elo}</span>
+              <div className="ml-auto my-auto flex flex-col">
+                <span className="lg:text-3xl text-xs lg:mr-2 mr-0">
+                  {"Rank " + counter}
+                </span>
+                <span className="text-xs">{"Elo " + image.elo}</span>
+              </div>
             </th>
           </tr>
         </tbody>

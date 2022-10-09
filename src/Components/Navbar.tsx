@@ -23,8 +23,9 @@ const Navbar = ({ triggerParentUpdate }: any) => {
     e.preventDefault();
     const ok = await Logoutfunc();
     if (ok) {
-      dispatch({ user: true });
+      dispatch({ user: false });
     }
+    dispatch({ user: false });
   };
 
   return (
@@ -238,8 +239,9 @@ export const NavbarNoSearch = ({ triggerParentUpdate }: any) => {
     e.preventDefault();
     const ok = await Logoutfunc();
     if (ok) {
-      dispatch({ user: true });
+      dispatch({ user: false });
     }
+    dispatch({ user: false });
   };
 
   return (
