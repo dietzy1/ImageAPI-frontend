@@ -11,7 +11,6 @@ import { useState, useEffect } from "react";
 function Pepebattle() {
   const [images, setImages] = useState<imageType[]>({} as imageType[]);
   const [loading, setLoading] = useState(true);
-
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
@@ -31,22 +30,20 @@ function Pepebattle() {
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
     if (isLeftSwipe || isRightSwipe)
-      console.log("swipe", isLeftSwipe ? "left" : "right");
-    // add your conditional logic here
+      isLeftSwipe
+        ? matchResult(images[1], images[0])
+        : matchResult(images[0], images[1]);
 
-    //Needs to call matchresult function
-    isLeftSwipe
-      ? matchResult(images[0].uuid, images[1].uuid)
-      : matchResult(images[1].uuid, images[0].uuid);
+    //wait for the matchresult function to finish before calling requestMatch
+    requestMatch();
   };
-  //I need to verify that that the winner is correct based on swipe
 
   const requestMatch = useCallback(async () => {
     console.log("requesting match");
     try {
       const res = await fetch(
-        `http://localhost:8000/api/v0/elo/requestmatch/`,
-        // `https://imageapi-production.up.railway.app/api/v0/elo/requestmatch/?key=${process.env.REACT_APP_API_KEY}`,
+        //`http://localhost:8000/api/v0/elo/requestmatch/`,
+        `https://imageapi-production.up.railway.app/api/v0/elo/requestmatch/?key=${process.env.REACT_APP_API_KEY}`,
         {
           method: "GET",
         }
@@ -59,22 +56,24 @@ function Pepebattle() {
     }
   }, [setImages, setLoading]);
 
-  /*   const getLeaderboard = useCallback(async () => {
-  const matchResult = async (winner: string, looser: string) => { */
   const matchResult = useCallback(
-    async (winner: string, looser: string) => {
+    async (winner: imageType, looser: imageType) => {
+      //Just change it to formdata and send it as a post request
+      const formData = new FormData();
+      formData.set("winneruuid", winner.uuid);
+      formData.set("looseruuid", looser.uuid);
+      formData.set("winnerelo", winner.elo.toString());
+      formData.set("looserelo", looser.elo.toString());
+
       try {
         const res = await fetch(
-          "http://localhost:8000/api/v0/elo/matchresult/",
+          //"http://localhost:8000/api/v0/elo/matchresult/",
+          `https://imageapi-production.up.railway.app/api/v0/elo/matchresult/?key=${process.env.REACT_APP_API_KEY}`,
           {
             method: "POST",
-            body: JSON.stringify({
-              winner: winner,
-              looser: looser,
-            }),
+            body: formData,
           }
         );
-        setImages(await res.json());
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -83,6 +82,20 @@ function Pepebattle() {
     },
     [setImages, setLoading]
   );
+
+  const onsubmitLeft = (e: any) => {
+    //Needs to call matchresult function
+    matchResult(images[0], images[1]);
+    //wait for the matchresult function to finish before calling requestMatch
+    requestMatch();
+  };
+
+  const onsubmitRight = (e: any) => {
+    //Needs to call matchresult function
+    matchResult(images[1], images[0]);
+    //wait for the matchresult function to finish before calling requestMatch
+    requestMatch();
+  };
 
   useEffect(() => {
     try {
@@ -114,10 +127,16 @@ function Pepebattle() {
 
         {/**Should output name of the pepe ontop**/}
         <div className="flex-row justify-center mb-6 hidden lg:flex">
-          <button className="bg-greeny lg:w-[200px] w-32 mx-12 lg:mx-44 rounded-md font-medium mt-6 lg:py-3 py-1 text-black hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30">
+          <button
+            className="bg-greeny lg:w-[200px] w-32 mx-12 lg:mx-32 rounded-md font-medium mt-6 lg:py-3 py-1 text-black hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30"
+            onClick={onsubmitLeft}
+          >
             I like this one!
           </button>
-          <button className="bg-greeny lg:w-[200px] w-32 mx-12 lg:mx-44 rounded-md font-medium mt-6 lg:py-3 py-1 text-black hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30">
+          <button
+            className="bg-greeny lg:w-[200px] w-32 mx-12 lg:mx-32 rounded-md font-medium mt-6 lg:py-3 py-1 text-black hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30"
+            onClick={onsubmitRight}
+          >
             This one is better!
           </button>
         </div>

@@ -83,12 +83,14 @@ const Navbar = ({ triggerParentUpdate }: any) => {
                 <hr className="mx-6 border-gray-500 " />
               </ul>
               {state.user ? (
-                <button
-                  className="py-3 m-10 w-[33.33%] hover:text-greeny whitespace-nowrap bg-white rounded-xl border border-gray-500 text-darky"
-                  onClick={onsubmitfunc}
-                >
-                  Logout
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    className="py-3 m-10 w-[33.33%] bg-white hover:text-greeny whitespace-nowrap  rounded-xl border border-gray-500 text-darky"
+                    onClick={onsubmitfunc}
+                  >
+                    Logout
+                  </button>
+                </div>
               ) : (
                 <ul className="flex justify-center">
                   <button
@@ -150,7 +152,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
           <div className="flex items-center space-x-2">
             {state.user ? (
               <button
-                className="py-6 hover:text-greeny whitespace-nowrap w-20"
+                className="py-6 hover:text-greeny whitespace-nowrap w-20 "
                 onClick={onsubmitfunc}
               >
                 Logout
@@ -297,12 +299,14 @@ export const NavbarNoSearch = ({ triggerParentUpdate }: any) => {
                 <hr className="mx-6 border-gray-500 " />
               </ul>
               {state.user ? (
-                <button
-                  className="py-3 m-10 w-[33.33%] hover:text-greeny whitespace-nowrap bg-white rounded-xl border border-gray-500 text-darky"
-                  onClick={onsubmitfunc}
-                >
-                  Logout
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    className="py-3 m-10 w-[33.33%] hover:text-greeny whitespace-nowrap bg-white rounded-xl border border-gray-500 text-darky"
+                    onClick={onsubmitfunc}
+                  >
+                    Logout
+                  </button>
+                </div>
               ) : (
                 <ul className="flex justify-center">
                   <button

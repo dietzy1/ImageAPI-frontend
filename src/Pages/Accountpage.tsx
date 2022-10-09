@@ -14,29 +14,29 @@ export function Accountpage({ open, onClose }: any) {
   if (!open) return null;
   return createPortal(
     <div
-      className="top-0 bottom-0 right-0 left-0 fixed z-[2000] backdrop-blur-lg shadow-3xl p-40"
+      className="top-0 bottom-0 right-0 left-0 fixed z-[2000] backdrop-blur-lg shadow-3xl lg:p-40"
       onClick={onClose}
     >
       <div
-        className="flex flex-col justify-center  "
+        className="flex flex-col justify-center "
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
-        <div className="max-w-[650px] h-[775px] w-full mx-auto bg-hybrid p-8 px-8  text-[#fff] rounded-lg border-2 border-gray-800">
+        <div className="max-w-[650px] h-[800px] w-full mx-auto bg-hybrid p-8 px-8  text-[#fff] rounded-lg border-2 border-gray-800">
           <p
             className="flex justify-end text-white text-bold text-xl"
             onClick={onClose}
           >
             x
           </p>
-          <h2 className="text-5xl font-bold text-white text-center pb-4">
+          <h2 className="text-5xl font-bold text-white text-center lg:pb-4 pb-2">
             Personal account settings
           </h2>
 
           <div className="overflow-x-auto relative shadow-md sm:rounded-lg pb-4"></div>
           {/*Show API key*/}
-          <div className="overflow-x-auto relative shadow-md sm:rounded-lg mb-10">
+          <div className="overflow-x-auto relative shadow-md sm:rounded-lg lg:mb-10 mb-4">
             <table className="w-full text-base text-left text-gray-400 border-2 border-gray-800">
               <tbody>
                 <tr className=" border-b bg-black dark:border-gray-700 h-20">
@@ -68,7 +68,7 @@ export function Accountpage({ open, onClose }: any) {
           </div>
 
           {/*Generate APIkey section*/}
-          <div className="overflow-x-auto relative shadow-md sm:rounded-lg mb-10">
+          <div className="overflow-x-auto relative shadow-md sm:rounded-lg lg:mb-10 mb-4">
             <table className="w-full text-base text-left text-gray-400 border-2 border-gray-800">
               <tbody>
                 <tr className=" border-b bg-black dark:border-gray-700 h-20">

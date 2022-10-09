@@ -10,7 +10,7 @@ function Leaderboardcard({
   counter: number;
 }) {
   return (
-    <div className="overflow-x-auto shadow-md sm:rounded-lg lg:w-[50%] w-[85%] mx-auto mb-4">
+    <div className="overflow-x-auto shadow-md sm:rounded-lg lg:w-[50%] w-[90%] mx-auto mb-4">
       <table className="w-full text-base text-left text-gray-400">
         <tbody>
           <tr className=" bg-hybrid  h-20">
