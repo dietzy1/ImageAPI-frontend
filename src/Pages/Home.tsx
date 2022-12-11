@@ -29,7 +29,7 @@ function Home() {
   const [images, setImages] = useState<imageType[]>({} as imageType[]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
-  const [dispatch] = useGlobalState();
+  const [state, dispatch] = useGlobalState();
 
   const updateQueryState = (state: string) => {
     setQuery(state);
@@ -95,16 +95,6 @@ function Home() {
         console.log(error);
       }
   }, [query, checkAuth, getImagesNoQuery, getImages]);
-
-  /*  async function onsubmit() {
-    const ok = await refreshSessionfunc();
-    if (ok) {
-      dispatch({ user: true });
-    }
-    if (!ok) {
-      dispatch({ user: false });
-    }
-  } */
 
   return (
     <div>

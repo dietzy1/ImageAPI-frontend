@@ -14,7 +14,6 @@ function Gallery1({ image }: { image: imageType }) {
 export default Gallery;
 
 function Gallery({ image }: { image: imageType }) {
-  const tags = image.tags.join(" ");
   return (
     <div className="w-full flex justify-center flex-wrap mb-12">
       <div className="relative flex-1 ">
@@ -22,14 +21,11 @@ function Gallery({ image }: { image: imageType }) {
           key={image.uuid}
           src={image.filepath}
           alt=""
-          className="opacity-80 relative align-top hover:opacity-100  duration-[0.6] transition-opacity "
+          className="opacity-80 relative align-top hover:opacity-100  duration-[0.6] transition-opacity rounded-lg "
         />
         <div className="z-1 absolute top-0 right-0 w-full h-full text-white hover:translate-y-[-30px] transition-transform opacity-0 hover:opacity-100   ">
           <h1 className="font-bold text-center uppercase mt-10 lg:mt-20 opacity-100 xl:text-2xl lg:text-2xl text-base">
             {image.title}
-          </h1>
-          <h1 className="font-bold text-center mx-10 mt-4 lg:flex xl:flex hidden">
-            {tags}
           </h1>
         </div>
       </div>
