@@ -1,8 +1,9 @@
 import React, { useCallback } from "react";
 import Footer from "../Components/Footer";
-import { NavbarNoSearch } from "../Components/Navbar";
+
 import { imageType } from "../Pages/Home";
 import { useState, useEffect } from "react";
+import Navbar from "../Components/Navbar";
 
 //I need to make a request to the backend for 2 images which are displayed on screen
 
@@ -107,7 +108,7 @@ function Pepebattle() {
 
   return (
     <div>
-      <NavbarNoSearch />
+      <Navbar />
 
       <div
         className="text-white text-center"

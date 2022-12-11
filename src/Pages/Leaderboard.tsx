@@ -1,8 +1,9 @@
 import Footer from "../Components/Footer";
-import { NavbarNoSearch } from "../Components/Navbar";
+
 import { imageType } from "../Pages/Home";
 import { useState, useEffect, useCallback } from "react";
 import Leaderboardcard from "../Components/Leaderboardcard";
+import Navbar from "../Components/Navbar";
 
 //should be a top 3 leaderboard and then everyone else below that
 //top 3 should be built as image cards
@@ -42,7 +43,7 @@ function Leaderboard() {
 
   return (
     <div>
-      <NavbarNoSearch />
+      <Navbar />
 
       <div className="lg:max-w-[800px] max-w-[400px]  w-full h-fit mx-auto flex-col justify-center pt-[96px] lg:mt-20  lg:mb-12 text-white text-center">
         <p className="text-greeny font-bold p-2">Leaderboard</p>

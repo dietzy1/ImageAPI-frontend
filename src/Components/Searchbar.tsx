@@ -31,7 +31,7 @@ const Searchbar = ({ triggerParentUpdate }: any) => {
             onChange={(e) => setQuery(e.target.value)}
             className="appearance-none bg-transparent border-none w-full text-gray-500 lg:mr-2 mr-1 py-1 px-2 leading-tight focus:outline-none rounded-md text-xs"
             type="text"
-            placeholder="Search"
+            placeholder="Aa"
           />
           {/*query doesn't work with scrolling links wrapping*/}
           {/*     <Link to="gallery" spy={true} smooth={true} offset={-90}> */}

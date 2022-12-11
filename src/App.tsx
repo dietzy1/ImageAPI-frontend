@@ -8,7 +8,7 @@ import Leaderboard from "./Pages/Leaderboard";
 import Pepebattle from "./Pages/Pepebattle";
 
 //These components are not loaded until you go to their path
-const Documentation = React.lazy(() => import("./Pages/Documentation"));
+/* const Documentation = React.lazy(() => import("./Pages/Documentation")); */
 
 const Loading = () => <p>Loading ...</p>;
 
@@ -19,7 +19,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/documentation" element={<Documentation />} />
+            {/* <Route path="/documentation" element={<Documentation />} /> */}
             <Route path="/standoff" element={<Pepebattle />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
           </Routes>
