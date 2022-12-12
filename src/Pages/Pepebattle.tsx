@@ -111,14 +111,14 @@ function Pepebattle() {
       <Navbar />
 
       <div
-        className="text-white text-center"
+        className="text-center text-white"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        <div className="max-w-[800px]  w-full h-fit mx-auto text-center flex-col justify-center lg:pt-[96px] pt-6 mt-20 mb-6 lg:mb-12">
-          <p className="text-greeny font-bold p-2">Pepe battle</p>
-          <h1 className="text-5xl font-bold py-2">
+        <div className="mx-auto  mt-20 mb-6 h-fit w-full max-w-[800px] flex-col justify-center pt-6 text-center lg:mb-12 lg:pt-[96px]">
+          <p className="p-2 font-bold text-greeny">Pepe battle</p>
+          <h1 className="py-2 text-5xl font-bold">
             Choose your favorite pepe!
           </h1>
           <h1 className="text-2xl font-bold text-gray-500">
@@ -127,54 +127,54 @@ function Pepebattle() {
         </div>
 
         {/**Should output name of the pepe ontop**/}
-        <div className="flex-row justify-center mb-6 hidden lg:flex">
+        <div className="mb-6 hidden flex-row justify-center lg:flex">
           <button
-            className="bg-greeny lg:w-[200px] w-32 mx-12 lg:mx-32 rounded-md font-medium mt-6 lg:py-3 py-1 text-black hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30"
+            className="mx-12 mt-6 w-32 rounded-md bg-greeny py-1 font-medium text-black shadow-lg shadow-greeny/50 hover:bg-white hover:shadow-greeny/30 lg:mx-32 lg:w-[200px] lg:py-3"
             onClick={onsubmitLeft}
           >
             I like this one!
           </button>
           <button
-            className="bg-greeny lg:w-[200px] w-32 mx-12 lg:mx-32 rounded-md font-medium mt-6 lg:py-3 py-1 text-black hover:bg-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30"
+            className="mx-12 mt-6 w-32 rounded-md bg-greeny py-1 font-medium text-black shadow-lg shadow-greeny/50 hover:bg-white hover:shadow-greeny/30 lg:mx-32 lg:w-[200px] lg:py-3"
             onClick={onsubmitRight}
           >
             This one is better!
           </button>
         </div>
 
-        <div className="flex-row justify-center lg:hidden text-greeny antialiased font-semibold ">
+        <div className="flex-row justify-center font-semibold text-greeny antialiased lg:hidden ">
           Swipe in the direction of your favorite pepe!
         </div>
-        <div className="p-4 m-3 mx-auto max-w-md w-16 justify-center my-auto rounded-full bg-white border-blacky text-blacky font-bold">
+        <div className="m-3 mx-auto my-auto w-16 max-w-md justify-center rounded-full border-blacky bg-white p-4 font-bold text-blacky">
           VS
         </div>
-        <hr className="mt-3 sm:mx-auto w-full mb-3" />
+        <hr className="mt-3 mb-3 w-full sm:mx-auto" />
 
         {loading ? (
           <div> Loading... </div>
         ) : (
           <div className="flex flex-row justify-center">
             <div>
-              <h1 className="lg:text-2xl text-lg">{images[0].title}</h1>
+              <h1 className="text-lg lg:text-2xl">{images[0].title}</h1>
 
               <img
                 src={images[0].filepath}
                 alt=""
-                className="lg:w-96 w-40 mb-6 rounded-lg lg:mx-10 mx-4"
+                className="mx-4 mb-6 w-40 rounded-lg lg:mx-10 lg:w-96"
               />
             </div>
 
             <div>
-              <h1 className="lg:text-2xl text-lg">{images[1].title}</h1>
+              <h1 className="text-lg lg:text-2xl">{images[1].title}</h1>
               <img
                 src={images[1].filepath}
                 alt=""
-                className="lg:w-96 w-40 mb-6 rounded-lg lg:mx-10 mx-4"
+                className="mx-4 mb-6 w-40 rounded-lg lg:mx-10 lg:w-96"
               />
             </div>
           </div>
         )}
-        <hr className="sm:mx-auto w-full" />
+        <hr className="w-full sm:mx-auto" />
         <div className="mb-40" />
       </div>
       <Footer />

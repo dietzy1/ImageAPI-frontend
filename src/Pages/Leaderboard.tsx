@@ -45,9 +45,9 @@ function Leaderboard() {
     <div>
       <Navbar />
 
-      <div className="lg:max-w-[800px] max-w-[400px]  w-full h-fit mx-auto flex-col justify-center pt-[96px] lg:mt-20  lg:mb-12 text-white text-center">
-        <p className="text-greeny font-bold p-2">Leaderboard</p>
-        <h1 className="text-5xl font-bold py-2">The most popular pepes!</h1>
+      <div className="mx-auto h-fit  w-full max-w-[400px] flex-col justify-center pt-[96px] text-center text-white  lg:mt-20 lg:mb-12 lg:max-w-[800px]">
+        <p className="p-2 font-bold text-greeny">Leaderboard</p>
+        <h1 className="py-2 text-5xl font-bold">The most popular pepes!</h1>
         <h1 className="text-2xl font-bold text-gray-500">
           See which pepes are the most popular!
         </h1>

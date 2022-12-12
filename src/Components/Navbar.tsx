@@ -136,6 +136,9 @@ const Navbar = ({ triggerParentUpdate }: any) => {
           <span className="md:text-text-xs hover:text-greeny sm:p-0 sm:text-xs md:p-1 lg:p-2">
             <Link to="/"> Home </Link>
           </span>
+          <span className="md:text-text-xs hover:text-greeny sm:p-0 sm:text-xs md:p-1 lg:p-2">
+            <Link to="/upload"> Upload </Link>
+          </span>
 
           <span className="hover:text-greeny sm:p-0 sm:text-xs md:p-1 md:text-xs lg:p-2">
             <Link to="/standoff"> Standoff</Link>
@@ -147,7 +150,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
           <div className="flex items-center space-x-2">
             {state.user ? (
               <button
-                className="w-20 whitespace-nowrap py-6 hover:text-greeny md:text-base "
+                className="w-16 whitespace-nowrap py-6 hover:text-greeny md:text-xs "
                 onClick={onsubmitfunc}
               >
                 Logout
@@ -155,7 +158,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
             ) : (
               <ul>
                 <button
-                  className=" w-20 whitespace-nowrap py-6 hover:text-greeny sm:text-xs md:text-xs"
+                  className=" w-16 whitespace-nowrap py-6 hover:text-greeny sm:text-xs md:text-xs"
                   onClick={() =>
                     openLoginpage(setIsOpen, setIsOpen1, setIsOpen2)
                   }
@@ -170,7 +173,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
                   onClick={() =>
                     openAccountpage(setIsOpen, setIsOpen1, setIsOpen2)
                   }
-                  className="w-20 whitespace-nowrap rounded-xl bg-greeny py-2 px-2 shadow-lg shadow-greeny/50 hover:bg-white hover:text-greeny hover:shadow-greeny/30 sm:text-xs md:text-xs"
+                  className="w-16 whitespace-nowrap rounded-xl bg-greeny py-2 px-2 shadow-lg shadow-greeny/50 hover:bg-white hover:text-greeny hover:shadow-greeny/30 sm:text-xs md:text-xs"
                 >
                   Account
                 </button>
@@ -181,7 +184,7 @@ const Navbar = ({ triggerParentUpdate }: any) => {
                   onClick={() =>
                     openSignuppage(setIsOpen, setIsOpen1, setIsOpen2)
                   }
-                  className="w-20 whitespace-nowrap rounded-xl bg-greeny py-3 px-2 shadow-lg shadow-greeny/50 hover:bg-white hover:text-greeny hover:shadow-greeny/30 sm:text-xs md:text-xs"
+                  className="w-16 whitespace-nowrap rounded-xl bg-greeny py-3 px-2 shadow-lg shadow-greeny/50 hover:bg-white hover:text-greeny hover:shadow-greeny/30 sm:text-xs md:text-xs"
                 >
                   Sign up
                 </button>

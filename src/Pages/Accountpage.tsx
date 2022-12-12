@@ -14,50 +14,50 @@ export function Accountpage({ open, onClose }: any) {
   if (!open) return null;
   return createPortal(
     <div
-      className="top-0 bottom-0 right-0 left-0 fixed z-[2000] backdrop-blur-lg shadow-3xl lg:p-40"
+      className="shadow-3xl fixed top-0 bottom-0 right-0 left-0 z-[2000] backdrop-blur-lg lg:p-40"
       onClick={onClose}
     >
       <div
-        className="flex flex-col justify-center "
+        className="mx-auto flex w-[60vh] flex-col justify-center  "
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
-        <div className="max-w-[650px] h-[800px] w-full mx-auto bg-hybrid p-8 px-8  text-[#fff] rounded-lg border-2 border-gray-800">
+        <div className="mx-auto h-[800px] w-full max-w-[650px] rounded-lg border-2 border-gray-800  bg-hybrid p-8 px-8 text-[#fff]">
           <p
-            className="flex justify-end text-white text-bold text-xl"
+            className="text-bold flex justify-end text-xl text-white"
             onClick={onClose}
           >
             x
           </p>
-          <h2 className="text-5xl font-bold text-white text-center lg:pb-4 pb-2">
+          <h2 className="pb-2 text-center text-5xl font-bold text-white lg:pb-4">
             Personal account settings
           </h2>
 
-          <div className="overflow-x-auto relative shadow-md sm:rounded-lg pb-4"></div>
+          <div className="relative overflow-x-auto pb-4 shadow-md sm:rounded-lg"></div>
           {/*Show API key*/}
-          <div className="overflow-x-auto relative shadow-md sm:rounded-lg lg:mb-10 mb-4">
-            <table className="w-full text-base text-left text-gray-400 border-2 border-gray-800">
+          <div className="relative mb-4 overflow-x-auto shadow-md sm:rounded-lg lg:mb-10">
+            <table className="w-full border-2 border-gray-800 text-left text-base text-gray-400">
               <tbody>
-                <tr className=" border-b bg-black dark:border-gray-700 h-20">
+                <tr className=" h-20 border-b bg-black dark:border-gray-700">
                   <th className="py-4 px-6 font-medium text-gray-900 dark:text-white">
-                    <h1 className="text-2xl mb-4">Show your api key</h1>
+                    <h1 className="mb-4 text-2xl">Show your api key</h1>
                     <th>Press the button below to see your API key.</th>
-                    <span className="border border-gray-800 p-1 px-3 w-20">
+                    <span className="w-20 border border-gray-800 p-1 px-3">
                       {toggle && apiKey.length === 0
                         ? "Your API key has been deleted, pls generate a new one."
-                        : "****************"}
+                        : ""}
                       {toggle ? apiKey : "****************"}
                     </span>
                   </th>
                 </tr>
               </tbody>
-              <tbody className="text-xs uppercase bg-[#111] border border-gray-700 h-12">
+              <tbody className="h-12 border border-gray-700 bg-[#111] text-xs uppercase">
                 <tr>
-                  <th className="text-right pr-8">
+                  <th className="pr-8 text-right">
                     <button
                       onClick={() => triggerToggle()}
-                      className="bg-greeny rounded-lg shadow-lg shadow-greeny/50 text-white p-2 text-semibold px-3 hover:shadow-greeny/30"
+                      className="text-semibold rounded-lg bg-greeny p-2 px-3 text-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30"
                     >
                       Show API key
                     </button>
@@ -68,24 +68,24 @@ export function Accountpage({ open, onClose }: any) {
           </div>
 
           {/*Generate APIkey section*/}
-          <div className="overflow-x-auto relative shadow-md sm:rounded-lg lg:mb-10 mb-4">
-            <table className="w-full text-base text-left text-gray-400 border-2 border-gray-800">
+          <div className="relative mb-4 overflow-x-auto shadow-md sm:rounded-lg lg:mb-10">
+            <table className="w-full border-2 border-gray-800 text-left text-base text-gray-400">
               <tbody>
-                <tr className=" border-b bg-black dark:border-gray-700 h-20">
+                <tr className=" h-20 border-b bg-black dark:border-gray-700">
                   <th className="py-4 px-6 font-medium text-gray-900 dark:text-white">
-                    <h1 className="text-2xl mb-4">Generate fresh API key</h1>
+                    <h1 className="mb-4 text-2xl">Generate fresh API key</h1>
                     <span>
                       Press the button below to generate a new API key.
                     </span>
                   </th>
                 </tr>
               </tbody>
-              <tbody className="text-xs uppercase bg-[#111]   border border-gray-700 h-12">
+              <tbody className="h-12 border border-gray-700   bg-[#111] text-xs uppercase">
                 <tr>
-                  <th className="text-right pr-8">
+                  <th className="pr-8 text-right">
                     <button
                       onClick={() => GenerateAPIKey({ setAPIKey })}
-                      className="bg-greeny rounded-lg shadow-lg shadow-greeny/50 text-white p-2 text-semibold px-3 hover:shadow-greeny/30"
+                      className="text-semibold rounded-lg bg-greeny p-2 px-3 text-white shadow-lg shadow-greeny/50 hover:shadow-greeny/30"
                     >
                       Generate Api key
                     </button>
@@ -96,12 +96,12 @@ export function Accountpage({ open, onClose }: any) {
           </div>
 
           {/*Delete personal account section*/}
-          <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <table className="w-full text-base text-left text-gray-400 border-2 border-red-800">
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full border-2 border-red-800 text-left text-base text-gray-400">
               <tbody>
-                <tr className=" border-b bg-black dark:border-gray-700 h-20">
+                <tr className=" h-20 border-b bg-black dark:border-gray-700">
                   <th className="py-4 px-6 font-medium text-gray-900 dark:text-white">
-                    <h1 className="text-2xl mb-4">Delete personal account</h1>
+                    <h1 className="mb-4 text-2xl">Delete personal account</h1>
                     <span>
                       Permamently delete your account and all related data from
                       the server. This action cannot be undone and all data will
@@ -110,12 +110,12 @@ export function Accountpage({ open, onClose }: any) {
                   </th>
                 </tr>
               </tbody>
-              <tbody className="text-xs uppercase bg-[#111]   border border-gray-700 h-12  ">
+              <tbody className="h-12 border border-gray-700   bg-[#111] text-xs uppercase  ">
                 <tr>
-                  <th className="text-right pr-8">
+                  <th className="pr-8 text-right">
                     <button
                       onClick={() => DeleteAccount()}
-                      className="bg-[#ff0000] rounded-lg shadow-lg shadow-red-800/50 text-white p-2 text-semibold px-3 hover:shadow-red-800/30"
+                      className="text-semibold rounded-lg bg-[#ff0000] p-2 px-3 text-white shadow-lg shadow-red-800/50 hover:shadow-red-800/30"
                     >
                       Delete personal account
                     </button>
